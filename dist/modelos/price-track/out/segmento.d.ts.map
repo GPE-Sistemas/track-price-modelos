@@ -1,0 +1,1 @@
+{"version":3,"file":"segmento.d.ts","sourceRoot":"","sources":["../../../../src/modelos/price-track/out/segmento.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,KAAK,CAAC;AAGtB,eAAO,MAAM,sBAAsB,gCAGjC,CAAC;AAEH,eAAO,MAAM,mBAAmB,wCAAsC,CAAC;AAEvE,MAAM,WAAW,YAAY;IACzB,GAAG,EAAE,MAAM,CAAC;IACZ,MAAM,EAAE,MAAM,CAAC;CAClB"}

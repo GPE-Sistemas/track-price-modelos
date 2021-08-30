@@ -1,0 +1,1 @@
+{"version":3,"file":"socketMessage.d.ts","sourceRoot":"","sources":["../../../src/modelos/shared/socketMessage.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,cAAc;IAC3B,IAAI,CAAC,EAAE,MAAM,EAAE,CAAC;IAChB,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,EAAE,CAAC,EAAE,MAAM,CAAC;CACf"}

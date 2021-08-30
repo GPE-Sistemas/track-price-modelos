@@ -1,0 +1,1 @@
+{"version":3,"file":"principio-activo.d.ts","sourceRoot":"","sources":["../../../../src/modelos/price-track/in/principio-activo.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,KAAK,CAAC;AAGtB,eAAO,MAAM,0BAA0B,oCAGrC,CAAC;AAEH,eAAO,MAAM,uBAAuB,wCAA0C,CAAC;AAE/E,MAAM,WAAW,gBAAgB;IAC7B,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,gBAAgB,CAAC,EAAE,MAAM,CAAC;CAC7B"}
