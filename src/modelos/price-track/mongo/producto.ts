@@ -11,10 +11,17 @@ export interface IProductoDb extends Document {
     idSegmento: Types.ObjectId;
     idsSubsegmento: Types.ObjectId[];
     composicion?: IComposicionDb[];
+    sku: string;
+    tipo: string;
+    unidad: string;
+    idsCompetencia: Types.ObjectId[];
+    idsAgrupacion: Types.ObjectId[];
     //
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
+    competencia?: IProductoDb[];
+    agrupacion?: IProductoDb[];
 }
 
 export const SProducto = new Schema<IProductoDb>({
@@ -23,7 +30,12 @@ export const SProducto = new Schema<IProductoDb>({
     idEmpresa: { type: Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: Types.ObjectId, ref: 'segmentos' },
     idsSubsegmento: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
-    composicion: [SComposicion]
+    composicion: [SComposicion],
+    sku: { type: String },
+    tipo: { type: String },
+    unidad: { type: String },
+    idsCompetencia: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsAgrupacion: [{ type: Types.ObjectId, ref: 'productos' }],
 });
 
 SProducto.virtual('empresa', {
@@ -45,4 +57,18 @@ SProducto.virtual('subsegmentos', {
     justOne: false,
     localField: 'idsSubsegmento',
     ref: 'subsegmentos',
+});
+
+SProducto.virtual('competencia', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsCompetencia',
+    ref: 'productos',
+});
+
+SProducto.virtual('agrupacion', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsAgrupacion',
+    ref: 'productos',
 });

@@ -294,7 +294,7 @@ class TrackPriceParserService {
         return dto;
     }
     static producto(dato) {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e, _f;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
@@ -302,10 +302,17 @@ class TrackPriceParserService {
             idSegmento: (_c = dato.idSegmento) === null || _c === void 0 ? void 0 : _c.toHexString(),
             idsSubsegmento: (_d = dato.idsSubsegmento) === null || _d === void 0 ? void 0 : _d.map(id => id.toHexString()),
             nombre: dato.nombre,
+            idsAgrupacion: (_e = dato.idsAgrupacion) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
+            idsCompetencia: (_f = dato.idsCompetencia) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
+            sku: dato.sku,
+            tipo: dato.tipo,
+            unidad: dato.unidad,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
+            competencia: dato.competencia ? TrackPriceParserService.productos(dato.competencia) : undefined,
+            agrupacion: dato.agrupacion ? TrackPriceParserService.productos(dato.agrupacion) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;

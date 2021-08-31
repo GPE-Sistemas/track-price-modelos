@@ -294,10 +294,17 @@ export class TrackPriceParserService {
             idSegmento: dato.idSegmento?.toHexString(),
             idsSubsegmento: dato.idsSubsegmento?.map( id => id.toHexString()),
             nombre: dato.nombre,
+            idsAgrupacion: dato.idsAgrupacion?.map( id => id.toHexString()),
+            idsCompetencia: dato.idsCompetencia?.map( id => id.toHexString()),
+            sku: dato.sku,
+            tipo: dato.tipo,
+            unidad: dato.unidad,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
+            competencia: dato.competencia ? TrackPriceParserService.productos(dato.competencia) : undefined,
+            agrupacion: dato.agrupacion ? TrackPriceParserService.productos(dato.agrupacion) : undefined,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
         return dto;

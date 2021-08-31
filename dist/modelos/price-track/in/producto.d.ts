@@ -8,5 +8,10 @@ export interface IProducto {
     idSegmento?: string;
     idsSubsegmento?: string[];
     composicion?: IComposicion[];
+    sku?: string;
+    tipo?: string;
+    unidad?: string;
+    idsCompetencia?: string[];
+    idsAgrupacion?: string[];
 }
 //# sourceMappingURL=producto.d.ts.map
