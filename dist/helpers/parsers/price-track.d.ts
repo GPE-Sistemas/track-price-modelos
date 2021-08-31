@@ -1,10 +1,12 @@
 import { LeanDocument } from 'mongoose';
-import { ICargadorDb, ICargadorDTO, IComposicionDb, IComposicionDTO, IConsultorDb, IConsultorDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
+import { ICargadorDb, ICargadorDTO, IComposicionDb, IComposicionDTO, IConsultorDb, IConsultorDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperarioDb, IOperarioDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
 export declare class TrackPriceParserService {
     static cargador(dato: LeanDocument<ICargadorDb>): ICargadorDTO;
     static cargadores(datos: LeanDocument<ICargadorDb>[]): ICargadorDTO[];
     static consultor(dato: LeanDocument<IConsultorDb>): IConsultorDTO;
     static consultores(datos: LeanDocument<IConsultorDb>[]): IConsultorDTO[];
+    static operario(dato: LeanDocument<IOperarioDb>): IOperarioDTO;
+    static operarios(datos: LeanDocument<IOperarioDb>[]): IOperarioDTO[];
     static region(dato: LeanDocument<IRegionDb>): IRegionDTO;
     static regiones(datos: LeanDocument<IRegionDb>[]): IRegionDTO[];
     static zona(dato: LeanDocument<IZonaDb>): IZonaDTO;

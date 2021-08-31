@@ -1,5 +1,5 @@
 import { LeanDocument } from 'mongoose';
-import { ICargadorDb, ICargadorDTO, IComposicionDb, IComposicionDTO, IConsultorDb, IConsultorDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
+import { ICargadorDb, ICargadorDTO, IComposicionDb, IComposicionDTO, IConsultorDb, IConsultorDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperarioDb, IOperarioDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
 
 export class TrackPriceParserService {
 
@@ -80,6 +80,45 @@ export class TrackPriceParserService {
         const dto: IConsultorDTO[] = [];
         for (const dato of datos) {
             dto.push(TrackPriceParserService.consultor(dato));
+        }
+        return dto;
+    }
+    static operario(dato: LeanDocument<IOperarioDb>): IOperarioDTO {
+        const dto: IOperarioDTO = {
+            // Usuario
+            _id: dato._id?.toHexString(),
+            activo: dato.activo,
+            apellido: dato.apellido,
+            dni: dato.dni,
+            email: dato.email,
+            idCliente: dato.idCliente?.toHexString(),
+            nombre: dato.nombre,
+            pais: dato.pais,
+            rol: dato.rol,
+            telefono: dato.telefono,
+            usuario: dato.usuario,
+            //
+            idUsuario: dato.idUsuario?.toHexString(),
+            idsDepartamento: dato.idsDepartamento?.map( id => id.toHexString()),
+            idsZona: dato.idsZona?.map( id => id.toHexString()),
+            idsProvincia: dato.idsProvincia?.map( id => id.toHexString()),
+            idsRegion: dato.idsRegion?.map( id => id.toHexString()),
+            idsLocalidad: dato.idsLocalidad?.map( id => id.toHexString()),
+            global: dato.global,
+            //
+            regiones: dato.regiones ? TrackPriceParserService.regiones(dato.regiones) : undefined,
+            provincias: dato.provincias ? TrackPriceParserService.provincias(dato.provincias) : undefined,
+            zonas: dato.zonas ? TrackPriceParserService.zonas(dato.zonas) : undefined,
+            departamentos: dato.departamentos ? TrackPriceParserService.departamentos(dato.departamentos) : undefined,
+            localidades: dato.localidades ? TrackPriceParserService.localidades(dato.localidades) : undefined,
+        };
+        Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
+        return dto;
+    }
+    static operarios(datos: LeanDocument<IOperarioDb>[]): IOperarioDTO[] {
+        const dto: IOperarioDTO[] = [];
+        for (const dato of datos) {
+            dto.push(TrackPriceParserService.operario(dato));
         }
         return dto;
     }

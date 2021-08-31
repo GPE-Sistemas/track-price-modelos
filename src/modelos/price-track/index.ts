@@ -1,3 +1,7 @@
+export * from './in/operario';
+export * from './mongo/operario';
+export * from './out/operario';
+//
 export * from './in/cargador';
 export * from './mongo/cargador';
 export * from './out/cargador';
