@@ -30,7 +30,7 @@ export const SOperador = new Schema<IOperadorDb>({
     usuario: { type: String, required: true, unique: true, lowercase: true },
     nombre: { type: String },
     apellido: { type: String },
-    clave: { type: String },
+    // clave: { type: String },
     // idCliente: { type: Types.ObjectId }, // Id de la db de administracion
     dni: { type: String },
     email: { type: String },
