@@ -20,7 +20,7 @@ export interface IUsuarioDb extends Document {
 
 export const SUsuario = new Schema<IUsuarioDb>({
     activo: { type: Boolean },
-    usuario: { type: String, unique: true, lowercase: true},
+    usuario: { type: String, required: true, unique: true, lowercase: true},
     nombre: { type: String },
     apellido: { type: String },
     clave: { type: String },

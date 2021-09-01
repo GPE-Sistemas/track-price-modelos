@@ -27,18 +27,18 @@ export interface IOperadorDb extends Document, IUsuarioDb {
 export const SOperador = new Schema<IOperadorDb>({
     // Usuario
     activo: { type: Boolean },
-    usuario: { type: String, unique: true, lowercase: true },
+    usuario: { type: String, required: true, unique: true, lowercase: true },
     nombre: { type: String },
     apellido: { type: String },
     clave: { type: String },
-    idCliente: { type: Types.ObjectId, required: true }, // Id de la db de administracion
+    // idCliente: { type: Types.ObjectId }, // Id de la db de administracion
     dni: { type: String },
     email: { type: String },
     pais: { type: String },
     telefono: { type: String },
     rol: { type: String },
     // Operador
-    idUsuario: { type: Types.ObjectId }, // Id de la db de administracion
+    idUsuario: { type: Types.ObjectId, required: true, unique: true }, // Id de la db de administracion
     idsZona: [{ type: Types.ObjectId, ref: 'zonas' }],
     idsRegion: [{ type: Types.ObjectId, ref: 'regiones' }],
     idsProvincia: [{ type: Types.ObjectId, ref: 'provincias' }],

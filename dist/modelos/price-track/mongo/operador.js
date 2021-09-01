@@ -5,18 +5,18 @@ const mongoose_1 = require("mongoose");
 exports.SOperador = new mongoose_1.Schema({
     // Usuario
     activo: { type: Boolean },
-    usuario: { type: String, unique: true, lowercase: true },
+    usuario: { type: String, required: true, unique: true, lowercase: true },
     nombre: { type: String },
     apellido: { type: String },
     clave: { type: String },
-    idCliente: { type: mongoose_1.Types.ObjectId, required: true },
+    // idCliente: { type: Types.ObjectId }, // Id de la db de administracion
     dni: { type: String },
     email: { type: String },
     pais: { type: String },
     telefono: { type: String },
     rol: { type: String },
     // Operador
-    idUsuario: { type: mongoose_1.Types.ObjectId },
+    idUsuario: { type: mongoose_1.Types.ObjectId, required: true, unique: true },
     idsZona: [{ type: mongoose_1.Types.ObjectId, ref: 'zonas' }],
     idsRegion: [{ type: mongoose_1.Types.ObjectId, ref: 'regiones' }],
     idsProvincia: [{ type: mongoose_1.Types.ObjectId, ref: 'provincias' }],

@@ -4,7 +4,7 @@ exports.SUsuario = void 0;
 const mongoose_1 = require("mongoose");
 exports.SUsuario = new mongoose_1.Schema({
     activo: { type: Boolean },
-    usuario: { type: String, unique: true, lowercase: true },
+    usuario: { type: String, required: true, unique: true, lowercase: true },
     nombre: { type: String },
     apellido: { type: String },
     clave: { type: String },
