@@ -1,6 +1,6 @@
 import joi from 'joi';
 import j2s from 'joi-to-swagger';
-import { ICargadorDTO, ICargadorDTOValidation } from './cargador';
+import { IOperadorDTO, IOperadorDTOValidation } from './operador';
 import { IPagoRelevamientoDTO, IPagoRelevamientoDTOValidation } from './pago-relevamiento';
 import { IProductoRelevamientoDTO, IProductoRelevamientoDTOValidation } from './producto-relevamiento';
 import { IUbicacionRelevamientoDTO, IUbicacionRelevamientoDTOValidation } from './ubicacion-relevamiento';
@@ -9,7 +9,7 @@ export const IRelevamientoDTOValidation = joi.object<IRelevamientoDTO>({
     _id: joi.string(),
     fecha: joi.string(),
     campAgricola: joi.string(),
-    idCargador: joi.string(),
+    idOperador: joi.string(),
     condicionComercial: joi.string(), // .allow('Distribuidor', 'Grandes Cuentas', 'Productor'),
     fuente: joi.string(),
     tipoRelevamiento: joi.string(), // .allow('Condición de Mercado', 'Precio de Lista', 'Cotización Perdida', 'Disponibilidad'),
@@ -20,7 +20,7 @@ export const IRelevamientoDTOValidation = joi.object<IRelevamientoDTO>({
     pago: IPagoRelevamientoDTOValidation,
     producto: IProductoRelevamientoDTOValidation,
     //
-    cargador: ICargadorDTOValidation
+    operador: IOperadorDTOValidation
 });
 
 export const IRelevamientoDTOSwagger = j2s(IRelevamientoDTOValidation).swagger;
@@ -29,7 +29,7 @@ export interface IRelevamientoDTO {
     _id: string;
     fecha: string;
     campAgricola: string;
-    idCargador: string;
+    idOperador: string;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;
@@ -40,5 +40,5 @@ export interface IRelevamientoDTO {
     pago?: IPagoRelevamientoDTO;
     producto?: IProductoRelevamientoDTO;
     //
-    cargador?: ICargadorDTO;
+    operador?: IOperadorDTO;
 }

@@ -19,7 +19,7 @@ exports.IUsuarioDTOValidation = joi_1.default.object({
     email: joi_1.default.string(),
     pais: joi_1.default.string(),
     telefono: joi_1.default.string(),
-    rol: joi_1.default.string().allow('admin', 'consultor', 'cargador'),
+    rol: joi_1.default.string().allow('admin', 'consultor', 'relevador'),
     //
     cliente: cliente_1.IClienteDTOValidation,
 });

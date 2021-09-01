@@ -6,8 +6,8 @@ import { IProvinciaDb } from './provincia';
 import { IRegionDb } from './region';
 import { IZonaDb } from './zona';
 
-export interface ICargadorDb extends Document, IUsuarioDb {
-    // Cargador
+export interface IOperadorDb extends Document, IUsuarioDb {
+    // Operador
     _id: Types.ObjectId;
     idUsuario: Types.ObjectId;
     idsZona: Types.ObjectId[];
@@ -24,7 +24,7 @@ export interface ICargadorDb extends Document, IUsuarioDb {
     localidades?: ILocalidadDb[];
 }
 
-export const SCargador = new Schema<ICargadorDb>({
+export const SOperador = new Schema<IOperadorDb>({
     // Usuario
     activo: { type: Boolean },
     usuario: { type: String, unique: true, lowercase: true },
@@ -37,7 +37,7 @@ export const SCargador = new Schema<ICargadorDb>({
     pais: { type: String },
     telefono: { type: String },
     rol: { type: String },
-    // Consultor
+    // Operador
     idUsuario: { type: Types.ObjectId }, // Id de la db de administracion
     idsZona: [{ type: Types.ObjectId, ref: 'zonas' }],
     idsRegion: [{ type: Types.ObjectId, ref: 'regiones' }],
@@ -47,35 +47,35 @@ export const SCargador = new Schema<ICargadorDb>({
     global: { type: Boolean }
 });
 
-SCargador.virtual('zonas', {
+SOperador.virtual('zonas', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsZona',
     ref: 'zonas',
 });
 
-SCargador.virtual('regiones', {
+SOperador.virtual('regiones', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsRegion',
     ref: 'regiones',
 });
 
-SCargador.virtual('provincias', {
+SOperador.virtual('provincias', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsProvincia',
     ref: 'provincias',
 });
 
-SCargador.virtual('departamentos', {
+SOperador.virtual('departamentos', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsDepartamento',
     ref: 'departamentos',
 });
 
-SCargador.virtual('localidades', {
+SOperador.virtual('localidades', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsLocalidad',

@@ -1,5 +1,5 @@
 import joi from 'joi';
-import { ICargadorDTO } from './cargador';
+import { IOperadorDTO } from './operador';
 import { IPagoRelevamientoDTO } from './pago-relevamiento';
 import { IProductoRelevamientoDTO } from './producto-relevamiento';
 import { IUbicacionRelevamientoDTO } from './ubicacion-relevamiento';
@@ -9,7 +9,7 @@ export interface IRelevamientoDTO {
     _id: string;
     fecha: string;
     campAgricola: string;
-    idCargador: string;
+    idOperador: string;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;
@@ -19,6 +19,6 @@ export interface IRelevamientoDTO {
     ubicacion?: IUbicacionRelevamientoDTO;
     pago?: IPagoRelevamientoDTO;
     producto?: IProductoRelevamientoDTO;
-    cargador?: ICargadorDTO;
+    operador?: IOperadorDTO;
 }
 //# sourceMappingURL=relevamiento.d.ts.map

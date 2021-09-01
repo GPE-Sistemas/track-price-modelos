@@ -1,18 +1,10 @@
-export * from './in/operario';
-export * from './mongo/operario';
-export * from './out/operario';
-//
-export * from './in/cargador';
-export * from './mongo/cargador';
-export * from './out/cargador';
+export * from './in/operador';
+export * from './mongo/operador';
+export * from './out/operador';
 //
 export * from './in/composicion';
 export * from './mongo/composicion';
 export * from './out/composicion';
-//
-export * from './in/consultor';
-export * from './mongo/consultor';
-export * from './out/consultor';
 //
 export * from './in/departamento';
 export * from './mongo/departamento';

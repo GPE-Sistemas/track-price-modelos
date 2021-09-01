@@ -12,7 +12,7 @@ export const IUsuarioValidation = joi.object<IUsuario>({
     email: joi.string(),
     pais: joi.string(),
     telefono: joi.string(),
-    rol: joi.string().allow('admin', 'consultor', 'cargador'),
+    rol: joi.string().allow('admin', 'consultor', 'relevador'),
 });
 
 export const IUsuarioSwagger = j2s(IUsuarioValidation).swagger;

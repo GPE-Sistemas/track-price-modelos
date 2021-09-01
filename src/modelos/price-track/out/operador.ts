@@ -7,7 +7,7 @@ import { IProvinciaDTO, IProvinciaDTOValidation } from './provincia';
 import { IRegionDTO, IRegionDTOValidation } from './region';
 import { IZonaDTO, IZonaDTOValidation } from './zona';
 
-export const IOperarioDTOValidation = joi.object<IOperarioDTO>({
+export const IOperadorDTOValidation = joi.object<IOperadorDTO>({
     // Usuario
     activo: joi.boolean(),
     usuario: joi.string(),
@@ -19,8 +19,8 @@ export const IOperarioDTOValidation = joi.object<IOperarioDTO>({
     email: joi.string(),
     pais: joi.string(),
     telefono: joi.string(),
-    rol: joi.string().allow('operario'),
-    // Operario
+    rol: joi.string().allow('consultor', 'relevador'),
+    // Operador
     _id: joi.string(),
     idUsuario: joi.string(),
     idsZona: joi.array().items(joi.string()),
@@ -37,9 +37,9 @@ export const IOperarioDTOValidation = joi.object<IOperarioDTO>({
     localidades: joi.array().items(ILocalidadDTOValidation),
 });
 
-export const IOperarioDTOSwagger = j2s(IOperarioDTOValidation).swagger;
+export const IOperadorDTOSwagger = j2s(IOperadorDTOValidation).swagger;
 
-export interface IOperarioDTO extends IUsuarioDTO {
+export interface IOperadorDTO extends IUsuarioDTO {
     idUsuario: string;
     idsZona: string[];
     idsRegion: string[];

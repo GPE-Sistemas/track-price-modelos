@@ -10,21 +10,13 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./in/operario"), exports);
-__exportStar(require("./mongo/operario"), exports);
-__exportStar(require("./out/operario"), exports);
-//
-__exportStar(require("./in/cargador"), exports);
-__exportStar(require("./mongo/cargador"), exports);
-__exportStar(require("./out/cargador"), exports);
+__exportStar(require("./in/operador"), exports);
+__exportStar(require("./mongo/operador"), exports);
+__exportStar(require("./out/operador"), exports);
 //
 __exportStar(require("./in/composicion"), exports);
 __exportStar(require("./mongo/composicion"), exports);
 __exportStar(require("./out/composicion"), exports);
-//
-__exportStar(require("./in/consultor"), exports);
-__exportStar(require("./mongo/consultor"), exports);
-__exportStar(require("./out/consultor"), exports);
 //
 __exportStar(require("./in/departamento"), exports);
 __exportStar(require("./mongo/departamento"), exports);

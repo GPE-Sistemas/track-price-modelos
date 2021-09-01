@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TrackPriceParserService = void 0;
 class TrackPriceParserService {
     // Usuarios
-    static cargador(dato) {
+    static operador(dato) {
         var _a, _b, _c, _d, _e, _f, _g, _h;
         const dto = {
             // Usuario
@@ -36,90 +36,10 @@ class TrackPriceParserService {
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;
     }
-    static cargadores(datos) {
+    static operadores(datos) {
         const dto = [];
         for (const dato of datos) {
-            dto.push(TrackPriceParserService.cargador(dato));
-        }
-        return dto;
-    }
-    static consultor(dato) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        const dto = {
-            // Usuario
-            _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
-            activo: dato.activo,
-            apellido: dato.apellido,
-            dni: dato.dni,
-            email: dato.email,
-            idCliente: (_b = dato.idCliente) === null || _b === void 0 ? void 0 : _b.toHexString(),
-            nombre: dato.nombre,
-            pais: dato.pais,
-            rol: dato.rol,
-            telefono: dato.telefono,
-            usuario: dato.usuario,
-            //
-            idUsuario: (_c = dato.idUsuario) === null || _c === void 0 ? void 0 : _c.toHexString(),
-            idsDepartamento: (_d = dato.idsDepartamento) === null || _d === void 0 ? void 0 : _d.map(id => id.toHexString()),
-            idsZona: (_e = dato.idsZona) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsProvincia: (_f = dato.idsProvincia) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsRegion: (_g = dato.idsRegion) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
-            idsLocalidad: (_h = dato.idsLocalidad) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
-            global: dato.global,
-            //
-            regiones: dato.regiones ? TrackPriceParserService.regiones(dato.regiones) : undefined,
-            provincias: dato.provincias ? TrackPriceParserService.provincias(dato.provincias) : undefined,
-            zonas: dato.zonas ? TrackPriceParserService.zonas(dato.zonas) : undefined,
-            departamentos: dato.departamentos ? TrackPriceParserService.departamentos(dato.departamentos) : undefined,
-            localidades: dato.localidades ? TrackPriceParserService.localidades(dato.localidades) : undefined,
-        };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
-        return dto;
-    }
-    static consultores(datos) {
-        const dto = [];
-        for (const dato of datos) {
-            dto.push(TrackPriceParserService.consultor(dato));
-        }
-        return dto;
-    }
-    static operario(dato) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        const dto = {
-            // Usuario
-            _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
-            activo: dato.activo,
-            apellido: dato.apellido,
-            dni: dato.dni,
-            email: dato.email,
-            idCliente: (_b = dato.idCliente) === null || _b === void 0 ? void 0 : _b.toHexString(),
-            nombre: dato.nombre,
-            pais: dato.pais,
-            rol: dato.rol,
-            telefono: dato.telefono,
-            usuario: dato.usuario,
-            //
-            idUsuario: (_c = dato.idUsuario) === null || _c === void 0 ? void 0 : _c.toHexString(),
-            idsDepartamento: (_d = dato.idsDepartamento) === null || _d === void 0 ? void 0 : _d.map(id => id.toHexString()),
-            idsZona: (_e = dato.idsZona) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsProvincia: (_f = dato.idsProvincia) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsRegion: (_g = dato.idsRegion) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
-            idsLocalidad: (_h = dato.idsLocalidad) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
-            global: dato.global,
-            //
-            regiones: dato.regiones ? TrackPriceParserService.regiones(dato.regiones) : undefined,
-            provincias: dato.provincias ? TrackPriceParserService.provincias(dato.provincias) : undefined,
-            zonas: dato.zonas ? TrackPriceParserService.zonas(dato.zonas) : undefined,
-            departamentos: dato.departamentos ? TrackPriceParserService.departamentos(dato.departamentos) : undefined,
-            localidades: dato.localidades ? TrackPriceParserService.localidades(dato.localidades) : undefined,
-        };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
-        return dto;
-    }
-    static operarios(datos) {
-        const dto = [];
-        for (const dato of datos) {
-            dto.push(TrackPriceParserService.operario(dato));
+            dto.push(TrackPriceParserService.operador(dato));
         }
         return dto;
     }
@@ -449,7 +369,7 @@ class TrackPriceParserService {
             disponibilidad: dato.disponibilidad,
             fecha: (_b = dato.fecha) === null || _b === void 0 ? void 0 : _b.toISOString(),
             fuente: dato.fuente,
-            idCargador: (_c = dato.idCargador) === null || _c === void 0 ? void 0 : _c.toHexString(),
+            idOperador: (_c = dato.idOperador) === null || _c === void 0 ? void 0 : _c.toHexString(),
             observaciones: dato.observaciones,
             pago: dato.pago ? TrackPriceParserService.pagoRelevamiento(dato.pago) : undefined,
             producto: dato.producto ? TrackPriceParserService.productoRelevamiento(dato.producto) : undefined,
@@ -457,7 +377,7 @@ class TrackPriceParserService {
             tipoRelevamiento: dato.tipoRelevamiento,
             verificado: dato.verificado,
             //
-            cargador: dato.cargador ? TrackPriceParserService.cargador(dato.cargador) : undefined,
+            operador: dato.operador ? TrackPriceParserService.operador(dato.operador) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;

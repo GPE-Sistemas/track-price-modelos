@@ -1,5 +1,5 @@
 import { Document, Schema, Types } from 'mongoose';
-import { ICargadorDb } from './cargador';
+import { IOperadorDb } from './operador';
 import { IPagoRelevamientoDb, SPagoRelevamiento } from './pago-relevamiento';
 import { IProductoRelevamientoDb, SProductoRelevamiento } from './producto-relevamiento';
 import { IUbicacionRelevamientoDb, SUbicacionRelevamiento } from './ubicacion-relevamiento';
@@ -8,7 +8,7 @@ export interface IRelevamientoDb extends Document {
     _id: Types.ObjectId;
     fecha: Date;
     campAgricola: string;
-    idCargador: Types.ObjectId;
+    idOperador: Types.ObjectId;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;
@@ -19,13 +19,13 @@ export interface IRelevamientoDb extends Document {
     pago: IPagoRelevamientoDb;
     producto: IProductoRelevamientoDb;
     //
-    cargador?: ICargadorDb;
+    operador?: IOperadorDb;
 }
 
 export const SRelevamiento = new Schema<IRelevamientoDb>({
     fecha: { type: Date },
     campAgricola: { type: String },
-    idCargador: { type: Types.ObjectId },
+    idOperador: { type: Types.ObjectId, ref: 'operadores' },
     condicionComercial: { type: String },
     fuente: { type: String },
     tipoRelevamiento: { type: String },
@@ -37,9 +37,9 @@ export const SRelevamiento = new Schema<IRelevamientoDb>({
     producto: SProductoRelevamiento,
 });
 
-SRelevamiento.virtual('cargador', {
+SRelevamiento.virtual('operador', {
     foreignField: '_id',
     justOne: true,
-    localField: 'idCargador',
-    ref: 'cargadores',
+    localField: 'idOperador',
+    ref: 'operadores',
 });

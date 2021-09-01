@@ -17,6 +17,6 @@ exports.IUsuarioValidation = joi_1.default.object({
     email: joi_1.default.string(),
     pais: joi_1.default.string(),
     telefono: joi_1.default.string(),
-    rol: joi_1.default.string().allow('admin', 'consultor', 'cargador'),
+    rol: joi_1.default.string().allow('admin', 'consultor', 'relevador'),
 });
 exports.IUsuarioSwagger = joi_to_swagger_1.default(exports.IUsuarioValidation).swagger;

@@ -2,7 +2,7 @@ import joi from 'joi';
 import j2s from 'joi-to-swagger';
 import { IUsuario } from '../../admin';
 
-export const IOperarioValidation = joi.object<IOperario>({
+export const IOperadorValidation = joi.object<IOperador>({
     // Usuario
     activo: joi.boolean(),
     usuario: joi.string(),
@@ -14,8 +14,8 @@ export const IOperarioValidation = joi.object<IOperario>({
     email: joi.string(),
     pais: joi.string(),
     telefono: joi.string(),
-    rol: joi.string().allow('operario'),
-    // Operario
+    rol: joi.string().allow('consultor', 'relevador'),
+    // Operador
     idUsuario: joi.string(),
     idsZona: joi.array().items(joi.string()),
     idsRegion: joi.array().items(joi.string()),
@@ -25,9 +25,9 @@ export const IOperarioValidation = joi.object<IOperario>({
     global: joi.boolean(),
 });
 
-export const IOperarioSwagger = j2s(IOperarioValidation).swagger;
+export const IOperadorSwagger = j2s(IOperadorValidation).swagger;
 
-export interface IOperario extends IUsuario {
+export interface IOperador extends IUsuario {
     idUsuario?: string;
     idsZona?: string[];
     idsRegion?: string[];

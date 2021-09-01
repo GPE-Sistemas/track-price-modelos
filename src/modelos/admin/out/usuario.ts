@@ -14,7 +14,7 @@ export const IUsuarioDTOValidation = joi.object<IUsuarioDTO>({
     email: joi.string(),
     pais: joi.string(),
     telefono: joi.string(),
-    rol: joi.string().allow('admin', 'consultor', 'cargador'),
+    rol: joi.string().allow('admin', 'consultor', 'relevador'),
     //
     cliente: IClienteDTOValidation,
 });
