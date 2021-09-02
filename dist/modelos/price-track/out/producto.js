@@ -19,14 +19,16 @@ exports.IProductoDTOValidation = joi_1.default.object({
     composicion: joi_1.default.array().items(composicion_1.IComposicionDTOValidation),
     sku: joi_1.default.string(),
     tipo: joi_1.default.string().allow('Genérico', 'Diferenciado'),
-    unidad: joi_1.default.string().allow('L', 'Kg', 'Litro'),
-    idsCompetencia: joi_1.default.array().items(joi_1.default.string()),
-    idsAgrupacion: joi_1.default.array().items(joi_1.default.string()),
+    unidad: joi_1.default.string().allow('lt', 'kg', 'otro'),
+    idsCompetencias: joi_1.default.array().items(joi_1.default.string()),
+    idsComplementos: joi_1.default.array().items(joi_1.default.string()),
+    idsSustitutos: joi_1.default.array().items(joi_1.default.string()),
     //
     empresa: empresa_1.IEmpresaDTOValidation,
     segmento: segmento_1.ISegmentoDTOValidation,
     subsegmentos: joi_1.default.array().items(subsegmento_1.ISubsegmentoDTOValidation),
-    competencia: joi_1.default.object(),
-    agrupacion: joi_1.default.object(),
+    competencias: joi_1.default.object(),
+    complementos: joi_1.default.object(),
+    sustitutos: joi_1.default.object(),
 });
 exports.IProductoDTOSwagger = joi_to_swagger_1.default(exports.IProductoDTOValidation).swagger;

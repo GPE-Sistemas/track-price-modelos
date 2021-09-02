@@ -15,8 +15,9 @@ exports.IProductoValidation = joi_1.default.object({
     composicion: joi_1.default.array().items(composicion_1.IComposicionValidation),
     sku: joi_1.default.string(),
     tipo: joi_1.default.string().allow('Genérico', 'Diferenciado'),
-    unidad: joi_1.default.string().allow('L', 'Kg', 'Litro'),
-    idsCompetencia: joi_1.default.array().items(joi_1.default.string()),
-    idsAgrupacion: joi_1.default.array().items(joi_1.default.string()),
+    unidad: joi_1.default.string().allow('lt', 'kg', 'otro'),
+    idsCompetencias: joi_1.default.array().items(joi_1.default.string()),
+    idsComplementos: joi_1.default.array().items(joi_1.default.string()),
+    idsSustitutos: joi_1.default.array().items(joi_1.default.string()),
 });
 exports.IProductoSwagger = joi_to_swagger_1.default(exports.IProductoValidation).swagger;

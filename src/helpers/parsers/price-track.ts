@@ -250,13 +250,14 @@ export class TrackPriceParserService {
     static producto(dato: LeanDocument<IProductoDb>): IProductoDTO {
         const dto: IProductoDTO = {
             _id: dato._id?.toHexString(),
+            nombre: dato.nombre,
             composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
             idEmpresa: dato.idEmpresa?.toHexString(),
             idSegmento: dato.idSegmento?.toHexString(),
             idsSubsegmento: dato.idsSubsegmento?.map( id => id.toHexString()),
-            nombre: dato.nombre,
-            idsAgrupacion: dato.idsAgrupacion?.map( id => id.toHexString()),
-            idsCompetencia: dato.idsCompetencia?.map( id => id.toHexString()),
+            idsCompetencias: dato.idsCompetencias?.map( id => id.toHexString()),
+            idsComplementos: dato.idsComplementos?.map( id => id.toHexString()),
+            idsSustitutos: dato.idsSustitutos?.map( id => id.toHexString()),
             sku: dato.sku,
             tipo: dato.tipo,
             unidad: dato.unidad,
@@ -264,8 +265,9 @@ export class TrackPriceParserService {
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
-            competencia: dato.competencia ? TrackPriceParserService.productos(dato.competencia) : undefined,
-            agrupacion: dato.agrupacion ? TrackPriceParserService.productos(dato.agrupacion) : undefined,
+            competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
+            complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
+            sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
         return dto;

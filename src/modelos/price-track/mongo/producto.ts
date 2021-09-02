@@ -14,19 +14,20 @@ export interface IProductoDb extends Document {
     sku: string;
     tipo: string;
     unidad: string;
-    idsCompetencia: Types.ObjectId[];
-    idsAgrupacion: Types.ObjectId[];
+    idsCompetencias: Types.ObjectId[];
+    idsComplementos: Types.ObjectId[];
+    idsSustitutos: Types.ObjectId[];
     //
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
-    competencia?: IProductoDb[];
-    agrupacion?: IProductoDb[];
+    competencias?: IProductoDb[];
+    complementos?: IProductoDb[];
+    sustitutos?: IProductoDb[];
 }
 
 export const SProducto = new Schema<IProductoDb>({
-    nombre: { type: String },
-    coordenadas: [{ type: Object }],
+    nombre: { type: String, required: true },
     idEmpresa: { type: Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: Types.ObjectId, ref: 'segmentos' },
     idsSubsegmento: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
@@ -34,8 +35,9 @@ export const SProducto = new Schema<IProductoDb>({
     sku: { type: String },
     tipo: { type: String },
     unidad: { type: String },
-    idsCompetencia: [{ type: Types.ObjectId, ref: 'productos' }],
-    idsAgrupacion: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsCompetencias: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsComplementos: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsSustitutos: [{ type: Types.ObjectId, ref: 'productos' }],
 });
 
 SProducto.virtual('empresa', {
@@ -59,16 +61,23 @@ SProducto.virtual('subsegmentos', {
     ref: 'subsegmentos',
 });
 
-SProducto.virtual('competencia', {
+SProducto.virtual('competencias', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsCompetencia',
+    localField: 'idsCompetencias',
     ref: 'productos',
 });
 
-SProducto.virtual('agrupacion', {
+SProducto.virtual('complementos', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsAgrupacion',
+    localField: 'idsComplementos',
+    ref: 'productos',
+});
+
+SProducto.virtual('sustitutos', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsSustitutos',
     ref: 'productos',
 });

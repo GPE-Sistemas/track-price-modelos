@@ -11,7 +11,8 @@ export interface IProducto {
     sku?: string;
     tipo?: string;
     unidad?: string;
-    idsCompetencia?: string[];
-    idsAgrupacion?: string[];
+    idsCompetencias?: string[];
+    idsComplementos?: string[];
+    idsSustitutos?: string[];
 }
 //# sourceMappingURL=producto.d.ts.map

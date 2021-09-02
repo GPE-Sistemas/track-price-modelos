@@ -15,12 +15,14 @@ export interface IProductoDTO {
     sku: string;
     tipo: string;
     unidad: string;
-    idsCompetencia: string[];
-    idsAgrupacion: string[];
+    idsCompetencias?: string[];
+    idsComplementos?: string[];
+    idsSustitutos?: string[];
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
-    competencia?: IProductoDTO[];
-    agrupacion?: IProductoDTO[];
+    competencias?: IProductoDTO[];
+    complementos?: IProductoDTO[];
+    sustitutos?: IProductoDTO[];
 }
 //# sourceMappingURL=producto.d.ts.map

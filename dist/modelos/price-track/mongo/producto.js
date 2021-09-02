@@ -4,8 +4,7 @@ exports.SProducto = void 0;
 const mongoose_1 = require("mongoose");
 const composicion_1 = require("./composicion");
 exports.SProducto = new mongoose_1.Schema({
-    nombre: { type: String },
-    coordenadas: [{ type: Object }],
+    nombre: { type: String, required: true },
     idEmpresa: { type: mongoose_1.Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: mongoose_1.Types.ObjectId, ref: 'segmentos' },
     idsSubsegmento: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentos' }],
@@ -13,8 +12,9 @@ exports.SProducto = new mongoose_1.Schema({
     sku: { type: String },
     tipo: { type: String },
     unidad: { type: String },
-    idsCompetencia: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
-    idsAgrupacion: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
+    idsCompetencias: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
+    idsComplementos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
+    idsSustitutos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
 });
 exports.SProducto.virtual('empresa', {
     foreignField: '_id',
@@ -34,15 +34,21 @@ exports.SProducto.virtual('subsegmentos', {
     localField: 'idsSubsegmento',
     ref: 'subsegmentos',
 });
-exports.SProducto.virtual('competencia', {
+exports.SProducto.virtual('competencias', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsCompetencia',
+    localField: 'idsCompetencias',
     ref: 'productos',
 });
-exports.SProducto.virtual('agrupacion', {
+exports.SProducto.virtual('complementos', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsAgrupacion',
+    localField: 'idsComplementos',
+    ref: 'productos',
+});
+exports.SProducto.virtual('sustitutos', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsSustitutos',
     ref: 'productos',
 });
