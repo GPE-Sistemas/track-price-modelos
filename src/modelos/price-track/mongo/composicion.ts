@@ -15,8 +15,8 @@ export interface IComposicionDb extends Document {
 }
 
 export const SComposicion = new Schema<IComposicionDb>({
-    idFamiliaQuimica: [{ type: Types.ObjectId, ref: 'familiasQuimicas' }],
-    idPrincipioActivo: [{ type: Types.ObjectId, ref: 'principiosActivos' }],
+    idFamiliaQuimica: { type: Types.ObjectId, ref: 'familiasQuimicas' },
+    idPrincipioActivo: { type: Types.ObjectId, ref: 'principiosActivos' },
     concentracion: { type: Number },
     formulacion: { type: String }
 });
