@@ -102,16 +102,18 @@ class TrackPriceParserService {
         return dto;
     }
     static departamento(dato) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             coordenadas: dato.coordenadas,
             idProvincia: (_b = dato.idProvincia) === null || _b === void 0 ? void 0 : _b.toHexString(),
             idZona: (_c = dato.idZona) === null || _c === void 0 ? void 0 : _c.toHexString(),
+            idRegion: (_d = dato.idRegion) === null || _d === void 0 ? void 0 : _d.toHexString(),
             nombre: dato.nombre,
             //
             provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
             zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
+            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;
@@ -124,14 +126,20 @@ class TrackPriceParserService {
         return dto;
     }
     static localidad(dato) {
-        var _a, _b;
+        var _a, _b, _c, _d, _e;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             coordenadas: dato.coordenadas,
             idDepartamento: (_b = dato.idDepartamento) === null || _b === void 0 ? void 0 : _b.toHexString(),
+            idProvincia: (_c = dato.idProvincia) === null || _c === void 0 ? void 0 : _c.toHexString(),
+            idZona: (_d = dato.idZona) === null || _d === void 0 ? void 0 : _d.toHexString(),
+            idRegion: (_e = dato.idRegion) === null || _e === void 0 ? void 0 : _e.toHexString(),
             nombre: dato.nombre,
             //
             departamento: dato.departamento ? TrackPriceParserService.departamento(dato.departamento) : undefined,
+            provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
+            zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
+            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;

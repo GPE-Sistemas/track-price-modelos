@@ -7,6 +7,7 @@ export const IDepartamentoValidation = joi.object<IDepartamento>({
     coordenadas: joi.array().items(ICoordenadasValidation),
     idProvincia: joi.string(),
     idZona: joi.string(),
+    idRegion: joi.string(),
 });
 
 export const IDepartamentoSwagger = j2s(IDepartamentoValidation).swagger;
@@ -16,4 +17,5 @@ export interface IDepartamento {
     coordenadas?: ICoordenadas[];
     idProvincia?: string;
     idZona?: string;
+    idRegion?: string;
 }

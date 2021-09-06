@@ -7,6 +7,7 @@ exports.SDepartamento = new mongoose_1.Schema({
     coordenadas: [{ type: Object }],
     idZona: { type: mongoose_1.Types.ObjectId, ref: 'zonas' },
     idProvincia: { type: mongoose_1.Types.ObjectId, ref: 'provincias' },
+    idRegion: { type: mongoose_1.Types.ObjectId, ref: 'regioes' },
 });
 exports.SDepartamento.virtual('zona', {
     foreignField: '_id',
@@ -19,4 +20,10 @@ exports.SDepartamento.virtual('provincia', {
     justOne: true,
     localField: 'idProvincia',
     ref: 'provincias',
+});
+exports.SDepartamento.virtual('region', {
+    foreignField: '_id',
+    justOne: true,
+    localField: 'idRegion',
+    ref: 'regiones',
 });

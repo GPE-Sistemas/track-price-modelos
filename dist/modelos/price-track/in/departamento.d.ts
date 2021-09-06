@@ -7,5 +7,6 @@ export interface IDepartamento {
     coordenadas?: ICoordenadas[];
     idProvincia?: string;
     idZona?: string;
+    idRegion?: string;
 }
 //# sourceMappingURL=departamento.d.ts.map

@@ -11,5 +11,8 @@ exports.ILocalidadValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     coordenadas: joi_1.default.array().items(shared_1.ICoordenadasValidation),
     idDepartamento: joi_1.default.string(),
+    idProvincia: joi_1.default.string(),
+    idZona: joi_1.default.string(),
+    idRegion: joi_1.default.string(),
 });
 exports.ILocalidadSwagger = joi_to_swagger_1.default(exports.ILocalidadValidation).swagger;

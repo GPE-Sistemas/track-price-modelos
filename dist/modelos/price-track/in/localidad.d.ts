@@ -6,5 +6,8 @@ export interface ILocalidad {
     nombre?: string;
     coordenadas?: ICoordenadas[];
     idDepartamento?: string;
+    idProvincia?: string;
+    idZona?: string;
+    idRegion?: string;
 }
 //# sourceMappingURL=localidad.d.ts.map

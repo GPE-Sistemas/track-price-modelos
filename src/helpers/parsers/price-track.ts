@@ -107,10 +107,12 @@ export class TrackPriceParserService {
             coordenadas: dato.coordenadas,
             idProvincia: dato.idProvincia?.toHexString(),
             idZona: dato.idZona?.toHexString(),
+            idRegion: dato.idRegion?.toHexString(),
             nombre: dato.nombre,
             //
             provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
             zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
+            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
         return dto;
@@ -127,9 +129,15 @@ export class TrackPriceParserService {
             _id: dato._id?.toHexString(),
             coordenadas: dato.coordenadas,
             idDepartamento: dato.idDepartamento?.toHexString(),
+            idProvincia: dato.idProvincia?.toHexString(),
+            idZona: dato.idZona?.toHexString(),
+            idRegion: dato.idRegion?.toHexString(),
             nombre: dato.nombre,
             //
             departamento: dato.departamento ? TrackPriceParserService.departamento(dato.departamento) : undefined,
+            provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
+            zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
+            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
         return dto;
