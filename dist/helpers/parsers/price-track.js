@@ -299,10 +299,15 @@ class TrackPriceParserService {
         var _a;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
+            comisionCanje: dato.comisionCanje,
+            comisionTarjeta: dato.comisionTarjeta,
+            plusCanje: dato.plusCanje,
+            precioContadoU$S: dato.precioContadoU$S,
+            precioFinalU$S: dato.precioFinalU$S,
+            tarjeta: dato.tarjeta,
+            tasaMensual: dato.tasaMensual,
             metodos: dato.metodos,
             plazoDias: dato.plazoDias,
-            precioU$S: dato.precioU$S,
-            tasa: dato.tasa,
             volumen: dato.volumen,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});

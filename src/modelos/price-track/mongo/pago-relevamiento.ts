@@ -1,17 +1,27 @@
 import { Document, Schema, Types } from 'mongoose';
 
 export interface IPagoRelevamientoDb extends Document {
-    precioU$S: number;
-    plazoDias: number;
-    metodos: string[];
-    tasa: number;
-    volumen: number;
+    precioFinalU$S?: number;
+    precioContadoU$S?: number;
+    plazoDias?: number;
+    metodos?: string[];
+    tarjeta?: string;
+    comisionTarjeta?: number;
+    tasaMensual?: number;
+    volumen?: number;
+    plusCanje?: number;
+    comisionCanje?: number;
 }
 
 export const SPagoRelevamiento = new Schema<IPagoRelevamientoDb>({
-    precioU$S: { type: Number },
+    precioFinalU$S: { type: Number },
+    precioContadoU$S: { type: Number },
     plazoDias: { type: Number },
     metodos: [{ type: String }],
-    tasa: { type: Number },
+    tarjeta: { type: String },
+    comisionTarjeta: { type: Number },
+    tasaMensual: { type: Number },
     volumen: { type: Number },
+    plusCanje: { type: Number },
+    comisionCanje: { type: Number },
 });

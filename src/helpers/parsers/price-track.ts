@@ -293,10 +293,15 @@ export class TrackPriceParserService {
     static pagoRelevamiento(dato: LeanDocument<IPagoRelevamientoDb>): IPagoRelevamientoDTO {
         const dto: IPagoRelevamientoDTO = {
             _id: dato._id?.toHexString(),
+            comisionCanje: dato.comisionCanje,
+            comisionTarjeta: dato.comisionTarjeta,
+            plusCanje: dato.plusCanje,
+            precioContadoU$S: dato.precioContadoU$S,
+            precioFinalU$S: dato.precioFinalU$S,
+            tarjeta: dato.tarjeta,
+            tasaMensual: dato.tasaMensual,
             metodos: dato.metodos,
             plazoDias: dato.plazoDias,
-            precioU$S: dato.precioU$S,
-            tasa: dato.tasa,
             volumen: dato.volumen,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});

@@ -3,10 +3,15 @@ export declare const IPagoRelevamientoDTOValidation: joi.ObjectSchema<IPagoRelev
 export declare const IPagoRelevamientoDTOSwagger: import("joi-to-swagger").SwaggerSchema;
 export interface IPagoRelevamientoDTO {
     _id: string;
-    precioU$S: number;
-    plazoDias: number;
-    metodos: string[];
-    tasa: number;
-    volumen: number;
+    precioFinalU$S?: number;
+    precioContadoU$S?: number;
+    plazoDias?: number;
+    metodos?: string[];
+    tarjeta?: string;
+    comisionTarjeta?: number;
+    tasaMensual?: number;
+    volumen?: number;
+    plusCanje?: number;
+    comisionCanje?: number;
 }
 //# sourceMappingURL=pago-relevamiento.d.ts.map
