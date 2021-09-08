@@ -7,7 +7,7 @@ import { IUbicacionRelevamiento, IUbicacionRelevamientoValidation } from './ubic
 export const IRelevamientoValidation = joi.object<IRelevamiento>({
     fecha: joi.string(),
     campAgricola: joi.string(),
-    idOperador: joi.string(),
+    idUsuario: joi.string(),
     condicionComercial: joi.string(), // .allow('Distribuidor', 'Grandes Cuentas', 'Productor'),
     fuente: joi.string(),
     tipoRelevamiento: joi.string(), // .allow('Condición de Mercado', 'Precio de Lista', 'Cotización Perdida', 'Disponibilidad'),
@@ -24,7 +24,7 @@ export const IRelevamientoSwagger = j2s(IRelevamientoValidation).swagger;
 export interface IRelevamiento {
     fecha?: string;
     campAgricola?: string;
-    idOperador?: string;
+    idUsuario?: string;
     condicionComercial?: string;
     fuente?: string;
     tipoRelevamiento?: string;

@@ -8,7 +8,7 @@ const ubicacion_relevamiento_1 = require("./ubicacion-relevamiento");
 exports.SRelevamiento = new mongoose_1.Schema({
     fecha: { type: Date },
     campAgricola: { type: String },
-    idOperador: { type: mongoose_1.Types.ObjectId, ref: 'operadores' },
+    idUsuario: { type: mongoose_1.Types.ObjectId, ref: 'operadores' },
     condicionComercial: { type: String },
     fuente: { type: String },
     tipoRelevamiento: { type: String },
@@ -20,8 +20,8 @@ exports.SRelevamiento = new mongoose_1.Schema({
     producto: producto_relevamiento_1.SProductoRelevamiento,
 });
 exports.SRelevamiento.virtual('operador', {
-    foreignField: '_id',
+    foreignField: 'idUsuario',
     justOne: true,
-    localField: 'idOperador',
+    localField: 'idUsuario',
     ref: 'operadores',
 });

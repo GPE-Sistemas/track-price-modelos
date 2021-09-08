@@ -9,7 +9,7 @@ export const IRelevamientoDTOValidation = joi.object<IRelevamientoDTO>({
     _id: joi.string(),
     fecha: joi.string(),
     campAgricola: joi.string(),
-    idOperador: joi.string(),
+    idUsuario: joi.string(),
     condicionComercial: joi.string(), // .allow('Distribuidor', 'Grandes Cuentas', 'Productor'),
     fuente: joi.string(),
     tipoRelevamiento: joi.string(), // .allow('Condición de Mercado', 'Precio de Lista', 'Cotización Perdida', 'Disponibilidad'),
@@ -29,7 +29,7 @@ export interface IRelevamientoDTO {
     _id: string;
     fecha: string;
     campAgricola: string;
-    idOperador: string;
+    idUsuario: string;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;

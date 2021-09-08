@@ -9,7 +9,7 @@ export interface IRelevamientoDTO {
     _id: string;
     fecha: string;
     campAgricola: string;
-    idOperador: string;
+    idUsuario: string;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;

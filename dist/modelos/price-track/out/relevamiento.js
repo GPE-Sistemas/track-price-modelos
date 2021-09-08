@@ -14,7 +14,7 @@ exports.IRelevamientoDTOValidation = joi_1.default.object({
     _id: joi_1.default.string(),
     fecha: joi_1.default.string(),
     campAgricola: joi_1.default.string(),
-    idOperador: joi_1.default.string(),
+    idUsuario: joi_1.default.string(),
     condicionComercial: joi_1.default.string(),
     fuente: joi_1.default.string(),
     tipoRelevamiento: joi_1.default.string(),

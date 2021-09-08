@@ -384,7 +384,7 @@ class TrackPriceParserService {
             disponibilidad: dato.disponibilidad,
             fecha: (_b = dato.fecha) === null || _b === void 0 ? void 0 : _b.toISOString(),
             fuente: dato.fuente,
-            idOperador: (_c = dato.idOperador) === null || _c === void 0 ? void 0 : _c.toHexString(),
+            idUsuario: (_c = dato.idUsuario) === null || _c === void 0 ? void 0 : _c.toHexString(),
             observaciones: dato.observaciones,
             pago: dato.pago ? TrackPriceParserService.pagoRelevamiento(dato.pago) : undefined,
             producto: dato.producto ? TrackPriceParserService.productoRelevamiento(dato.producto) : undefined,

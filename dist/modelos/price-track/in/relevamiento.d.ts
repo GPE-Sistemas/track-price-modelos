@@ -7,7 +7,7 @@ export declare const IRelevamientoSwagger: import("joi-to-swagger").SwaggerSchem
 export interface IRelevamiento {
     fecha?: string;
     campAgricola?: string;
-    idOperador?: string;
+    idUsuario?: string;
     condicionComercial?: string;
     fuente?: string;
     tipoRelevamiento?: string;

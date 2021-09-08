@@ -375,7 +375,7 @@ export class TrackPriceParserService {
             disponibilidad: dato.disponibilidad,
             fecha: dato.fecha?.toISOString(),
             fuente: dato.fuente,
-            idOperador: dato.idOperador?.toHexString(),
+            idUsuario: dato.idUsuario?.toHexString(),
             observaciones: dato.observaciones,
             pago: dato.pago ? TrackPriceParserService.pagoRelevamiento(dato.pago) : undefined,
             producto: dato.producto ? TrackPriceParserService.productoRelevamiento(dato.producto) : undefined,

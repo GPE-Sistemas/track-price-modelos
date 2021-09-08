@@ -7,7 +7,7 @@ export interface IRelevamientoDb extends Document {
     _id: Types.ObjectId;
     fecha: Date;
     campAgricola: string;
-    idOperador: Types.ObjectId;
+    idUsuario: Types.ObjectId;
     condicionComercial: string;
     fuente: string;
     tipoRelevamiento: string;
