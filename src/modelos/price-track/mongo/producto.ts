@@ -38,11 +38,14 @@ export const SProducto = new Schema<IProductoDb>({
     idsSubsegmento: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
     composicion: [SComposicion],
     sku: { type: String },
+    numeroRegistro: { type: String },
     tipo: { type: String },
     unidad: { type: String },
     idsCompetencias: [{ type: Types.ObjectId, ref: 'productos' }],
     idsComplementos: [{ type: Types.ObjectId, ref: 'productos' }],
     idsSustitutos: [{ type: Types.ObjectId, ref: 'productos' }],
+    agrupacion1: [{ type: Types.ObjectId, ref: 'productos' }],
+    agrupacion2: [{ type: Types.ObjectId, ref: 'productos' }],
 });
 
 SProducto.virtual('empresa', {
