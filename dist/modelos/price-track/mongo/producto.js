@@ -16,8 +16,8 @@ exports.SProducto = new mongoose_1.Schema({
     idsCompetencias: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
     idsComplementos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
     idsSustitutos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
-    agrupacion1: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
-    agrupacion2: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
+    idsAgrupacion1: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
+    idsAgrupacion2: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
 });
 exports.SProducto.virtual('empresa', {
     foreignField: '_id',

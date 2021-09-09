@@ -44,8 +44,8 @@ export const SProducto = new Schema<IProductoDb>({
     idsCompetencias: [{ type: Types.ObjectId, ref: 'productos' }],
     idsComplementos: [{ type: Types.ObjectId, ref: 'productos' }],
     idsSustitutos: [{ type: Types.ObjectId, ref: 'productos' }],
-    agrupacion1: [{ type: Types.ObjectId, ref: 'productos' }],
-    agrupacion2: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsAgrupacion1: [{ type: Types.ObjectId, ref: 'productos' }],
+    idsAgrupacion2: [{ type: Types.ObjectId, ref: 'productos' }],
 });
 
 SProducto.virtual('empresa', {
