@@ -9,6 +9,8 @@ export interface IComposicionDb extends Document {
     idPrincipioActivo: Types.ObjectId;
     concentracion: number;
     formulacion: string;
+    claseTox: string;
+    unidad: string;
     // Populate
     familiaQuimica?: IFamiliaQuimicaDb;
     principioActivo?: IPrincipioActivoDb;
@@ -18,7 +20,9 @@ export const SComposicion = new Schema<IComposicionDb>({
     idFamiliaQuimica: { type: Types.ObjectId, ref: 'familiasQuimicas' },
     idPrincipioActivo: { type: Types.ObjectId, ref: 'principiosActivos' },
     concentracion: { type: Number },
-    formulacion: { type: String }
+    formulacion: { type: String },
+    claseTox: { type: String },
+    unidad: { type: String },
 });
 
 SComposicion.virtual('familiaQuimica', {

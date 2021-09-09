@@ -11,5 +11,7 @@ exports.IComposicionValidation = joi_1.default.object({
     idPrincipioActivo: joi_1.default.string(),
     concentracion: joi_1.default.number(),
     formulacion: joi_1.default.string(),
+    claseTox: joi_1.default.string(),
+    unidad: joi_1.default.string(),
 });
 exports.IComposicionSwagger = joi_to_swagger_1.default(exports.IComposicionValidation).swagger;

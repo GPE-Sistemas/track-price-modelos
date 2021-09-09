@@ -17,18 +17,23 @@ exports.IProductoDTOValidation = joi_1.default.object({
     idSegmento: joi_1.default.string(),
     idsSubsegmento: joi_1.default.array().items(joi_1.default.string()),
     composicion: joi_1.default.array().items(composicion_1.IComposicionDTOValidation),
-    sku: joi_1.default.string(),
-    tipo: joi_1.default.string().allow('Genérico', 'Diferenciado'),
-    unidad: joi_1.default.string().allow('lt', 'kg', 'otro'),
+    sku: joi_1.default.string().allow(null, ''),
+    numeroRegistro: joi_1.default.string().allow(null, ''),
+    tipo: joi_1.default.string().allow(null, ''),
+    unidad: joi_1.default.string().allow(null, ''),
     idsCompetencias: joi_1.default.array().items(joi_1.default.string()),
     idsComplementos: joi_1.default.array().items(joi_1.default.string()),
     idsSustitutos: joi_1.default.array().items(joi_1.default.string()),
-    //
+    idsAgrupacion1: joi_1.default.array().items(joi_1.default.string()),
+    idsAgrupacion2: joi_1.default.array().items(joi_1.default.string()),
+    // Populate
     empresa: empresa_1.IEmpresaDTOValidation,
     segmento: segmento_1.ISegmentoDTOValidation,
     subsegmentos: joi_1.default.array().items(subsegmento_1.ISubsegmentoDTOValidation),
     competencias: joi_1.default.object(),
     complementos: joi_1.default.object(),
     sustitutos: joi_1.default.object(),
+    agrupacion1: joi_1.default.object(),
+    agrupacion2: joi_1.default.object(),
 });
 exports.IProductoDTOSwagger = joi_to_swagger_1.default(exports.IProductoDTOValidation).swagger;

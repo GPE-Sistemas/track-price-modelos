@@ -7,6 +7,8 @@ export interface IComposicionDb extends Document {
     idPrincipioActivo: Types.ObjectId;
     concentracion: number;
     formulacion: string;
+    claseTox: string;
+    unidad: string;
     familiaQuimica?: IFamiliaQuimicaDb;
     principioActivo?: IPrincipioActivoDb;
 }

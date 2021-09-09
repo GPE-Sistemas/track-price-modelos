@@ -247,6 +247,8 @@ class TrackPriceParserService {
             idFamiliaQuimica: (_c = dato.idFamiliaQuimica) === null || _c === void 0 ? void 0 : _c.toHexString(),
             concentracion: dato.concentracion,
             formulacion: dato.formulacion,
+            claseTox: dato.claseTox,
+            unidad: dato.unidad,
             //
             principioActivo: dato.principioActivo ? TrackPriceParserService.principioActivo(dato.principioActivo) : undefined,
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -262,18 +264,21 @@ class TrackPriceParserService {
         return dto;
     }
     static producto(dato) {
-        var _a, _b, _c, _d, _e, _f, _g;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
             composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
-            idEmpresa: (_b = dato.idEmpresa) === null || _b === void 0 ? void 0 : _b.toHexString(),
-            idSegmento: (_c = dato.idSegmento) === null || _c === void 0 ? void 0 : _c.toHexString(),
-            idsSubsegmento: (_d = dato.idsSubsegmento) === null || _d === void 0 ? void 0 : _d.map(id => id.toHexString()),
-            idsCompetencias: (_e = dato.idsCompetencias) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsComplementos: (_f = dato.idsComplementos) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsSustitutos: (_g = dato.idsSustitutos) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
+            idsAgrupacion1: (_b = dato.idsAgrupacion1) === null || _b === void 0 ? void 0 : _b.map(id => id.toHexString()),
+            idsAgrupacion2: (_c = dato.idsAgrupacion2) === null || _c === void 0 ? void 0 : _c.map(id => id.toHexString()),
+            idEmpresa: (_d = dato.idEmpresa) === null || _d === void 0 ? void 0 : _d.toHexString(),
+            idSegmento: (_e = dato.idSegmento) === null || _e === void 0 ? void 0 : _e.toHexString(),
+            idsSubsegmento: (_f = dato.idsSubsegmento) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
+            idsCompetencias: (_g = dato.idsCompetencias) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
+            idsComplementos: (_h = dato.idsComplementos) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
+            idsSustitutos: (_j = dato.idsSustitutos) === null || _j === void 0 ? void 0 : _j.map(id => id.toHexString()),
             sku: dato.sku,
+            numeroRegistro: dato.numeroRegistro,
             tipo: dato.tipo,
             unidad: dato.unidad,
             //
@@ -283,6 +288,8 @@ class TrackPriceParserService {
             competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
             complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
             sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
+            agrupacion1: dato.agrupacion1 ? TrackPriceParserService.productos(dato.agrupacion1) : undefined,
+            agrupacion2: dato.agrupacion2 ? TrackPriceParserService.productos(dato.agrupacion2) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
         return dto;

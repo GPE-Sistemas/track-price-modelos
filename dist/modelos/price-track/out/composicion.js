@@ -13,6 +13,8 @@ exports.IComposicionDTOValidation = joi_1.default.object({
     idPrincipioActivo: joi_1.default.string(),
     concentracion: joi_1.default.number(),
     formulacion: joi_1.default.string(),
+    claseTox: joi_1.default.string(),
+    unidad: joi_1.default.string(),
     // Populate
     familiaQuimica: familia_quimica_1.IFamiliaQuimicaDTOValidation,
     principioActivo: principio_activo_1.IPrincipioActivoDTOValidation,

@@ -12,19 +12,24 @@ export const IProductoDTOValidation = joi.object<IProductoDTO>({
     idSegmento: joi.string(),
     idsSubsegmento: joi.array().items(joi.string()),
     composicion: joi.array().items(IComposicionDTOValidation),
-    sku: joi.string(),
-    tipo: joi.string().allow('Genérico', 'Diferenciado'),
-    unidad: joi.string().allow('lt', 'kg', 'otro'),
+    sku: joi.string().allow(null, ''),
+    numeroRegistro: joi.string().allow(null, ''),
+    tipo: joi.string().allow(null, ''),
+    unidad: joi.string().allow(null, ''),
     idsCompetencias: joi.array().items(joi.string()),
     idsComplementos: joi.array().items(joi.string()),
     idsSustitutos: joi.array().items(joi.string()),
-    //
+    idsAgrupacion1: joi.array().items(joi.string()),
+    idsAgrupacion2: joi.array().items(joi.string()),
+    // Populate
     empresa: IEmpresaDTOValidation,
     segmento: ISegmentoDTOValidation,
     subsegmentos: joi.array().items(ISubsegmentoDTOValidation),
     competencias: joi.object(),
     complementos: joi.object(),
     sustitutos: joi.object(),
+    agrupacion1: joi.object(),
+    agrupacion2: joi.object(),
 });
 
 export const IProductoDTOSwagger = j2s(IProductoDTOValidation).swagger;
@@ -37,11 +42,14 @@ export interface IProductoDTO {
     idsSubsegmento: string[];
     composicion?: IComposicionDTO[];
     sku: string;
+    numeroRegistro: string;
     tipo: string;
     unidad: string;
     idsCompetencias?: string[];
     idsComplementos?: string[];
     idsSustitutos?: string[];
+    idsAgrupacion1?: string[];
+    idsAgrupacion2?: string[];
     //
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
@@ -49,4 +57,6 @@ export interface IProductoDTO {
     competencias?: IProductoDTO[];
     complementos?: IProductoDTO[];
     sustitutos?: IProductoDTO[];
+    agrupacion1?: IProductoDTO[];
+    agrupacion2?: IProductoDTO[];
 }

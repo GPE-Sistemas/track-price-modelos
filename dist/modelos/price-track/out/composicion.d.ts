@@ -9,6 +9,8 @@ export interface IComposicionDTO {
     idPrincipioActivo: string;
     concentracion: number;
     formulacion: string;
+    claseTox: string;
+    unidad: string;
     familiaQuimica?: IFamiliaQuimicaDTO;
     principioActivo?: IPrincipioActivoDTO;
 }

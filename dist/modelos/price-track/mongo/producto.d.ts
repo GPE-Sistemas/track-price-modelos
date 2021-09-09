@@ -11,17 +11,22 @@ export interface IProductoDb extends Document {
     idsSubsegmento: Types.ObjectId[];
     composicion?: IComposicionDb[];
     sku: string;
+    numeroRegistro: string;
     tipo: string;
     unidad: string;
     idsCompetencias: Types.ObjectId[];
     idsComplementos: Types.ObjectId[];
     idsSustitutos: Types.ObjectId[];
+    idsAgrupacion1: Types.ObjectId[];
+    idsAgrupacion2: Types.ObjectId[];
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
     competencias?: IProductoDb[];
     complementos?: IProductoDb[];
     sustitutos?: IProductoDb[];
+    agrupacion1?: IProductoDb[];
+    agrupacion2?: IProductoDb[];
 }
 export declare const SProducto: Schema<IProductoDb, import("mongoose").Model<any, any, any>, undefined>;
 //# sourceMappingURL=producto.d.ts.map

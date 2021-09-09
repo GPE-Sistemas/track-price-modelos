@@ -9,10 +9,13 @@ export interface IProducto {
     idsSubsegmento?: string[];
     composicion?: IComposicion[];
     sku?: string;
+    numeroRegistro?: string;
     tipo?: string;
     unidad?: string;
     idsCompetencias?: string[];
     idsComplementos?: string[];
     idsSustitutos?: string[];
+    idsAgrupacion1?: string[];
+    idsAgrupacion2?: string[];
 }
 //# sourceMappingURL=producto.d.ts.map

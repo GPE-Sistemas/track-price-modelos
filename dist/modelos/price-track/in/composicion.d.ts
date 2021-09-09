@@ -6,5 +6,7 @@ export interface IComposicion {
     idPrincipioActivo?: string;
     concentracion?: number;
     formulacion?: string;
+    claseTox?: string;
+    unidad?: string;
 }
 //# sourceMappingURL=composicion.d.ts.map

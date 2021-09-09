@@ -241,6 +241,8 @@ export class TrackPriceParserService {
             idFamiliaQuimica: dato.idFamiliaQuimica?.toHexString(),
             concentracion: dato.concentracion,
             formulacion: dato.formulacion,
+            claseTox: dato.claseTox,
+            unidad: dato.unidad,
             //
             principioActivo: dato.principioActivo ? TrackPriceParserService.principioActivo(dato.principioActivo) : undefined,
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -260,6 +262,8 @@ export class TrackPriceParserService {
             _id: dato._id?.toHexString(),
             nombre: dato.nombre,
             composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
+            idsAgrupacion1: dato.idsAgrupacion1?.map( id => id.toHexString()),
+            idsAgrupacion2: dato.idsAgrupacion2?.map( id => id.toHexString()),
             idEmpresa: dato.idEmpresa?.toHexString(),
             idSegmento: dato.idSegmento?.toHexString(),
             idsSubsegmento: dato.idsSubsegmento?.map( id => id.toHexString()),
@@ -267,6 +271,7 @@ export class TrackPriceParserService {
             idsComplementos: dato.idsComplementos?.map( id => id.toHexString()),
             idsSustitutos: dato.idsSustitutos?.map( id => id.toHexString()),
             sku: dato.sku,
+            numeroRegistro: dato.numeroRegistro,
             tipo: dato.tipo,
             unidad: dato.unidad,
             //
@@ -276,6 +281,8 @@ export class TrackPriceParserService {
             competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
             complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
             sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
+            agrupacion1: dato.agrupacion1 ? TrackPriceParserService.productos(dato.agrupacion1) : undefined,
+            agrupacion2: dato.agrupacion2 ? TrackPriceParserService.productos(dato.agrupacion2) : undefined,
         };
         Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
         return dto;

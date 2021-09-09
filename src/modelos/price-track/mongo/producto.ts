@@ -12,11 +12,14 @@ export interface IProductoDb extends Document {
     idsSubsegmento: Types.ObjectId[];
     composicion?: IComposicionDb[];
     sku: string;
+    numeroRegistro: string;
     tipo: string;
     unidad: string;
     idsCompetencias: Types.ObjectId[];
     idsComplementos: Types.ObjectId[];
     idsSustitutos: Types.ObjectId[];
+    idsAgrupacion1: Types.ObjectId[];
+    idsAgrupacion2: Types.ObjectId[];
     //
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
@@ -24,6 +27,8 @@ export interface IProductoDb extends Document {
     competencias?: IProductoDb[];
     complementos?: IProductoDb[];
     sustitutos?: IProductoDb[];
+    agrupacion1?: IProductoDb[];
+    agrupacion2?: IProductoDb[];
 }
 
 export const SProducto = new Schema<IProductoDb>({
@@ -79,5 +84,19 @@ SProducto.virtual('sustitutos', {
     foreignField: '_id',
     justOne: false,
     localField: 'idsSustitutos',
+    ref: 'productos',
+});
+
+SProducto.virtual('agrupacion1', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsAgrupacion1',
+    ref: 'productos',
+});
+
+SProducto.virtual('agrupacion2', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsAgrupacion2',
     ref: 'productos',
 });

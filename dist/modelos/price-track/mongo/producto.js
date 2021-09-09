@@ -52,3 +52,15 @@ exports.SProducto.virtual('sustitutos', {
     localField: 'idsSustitutos',
     ref: 'productos',
 });
+exports.SProducto.virtual('agrupacion1', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsAgrupacion1',
+    ref: 'productos',
+});
+exports.SProducto.virtual('agrupacion2', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsAgrupacion2',
+    ref: 'productos',
+});
