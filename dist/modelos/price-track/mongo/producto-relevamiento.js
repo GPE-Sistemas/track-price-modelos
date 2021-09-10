@@ -25,13 +25,13 @@ exports.SProductoRelevamiento.virtual('empresa', {
 exports.SProductoRelevamiento.virtual('segmento', {
     foreignField: '_id',
     justOne: true,
-    localField: 'idsSubsegmentos',
+    localField: 'idSegmento',
     ref: 'segmentos',
 });
 exports.SProductoRelevamiento.virtual('subsegmentos', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idSegmento',
+    localField: 'idsSubsegmentos',
     ref: 'subsegmentos',
 });
 exports.SProductoRelevamiento.virtual('principiosActivos', {
