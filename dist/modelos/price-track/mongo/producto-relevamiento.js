@@ -8,7 +8,7 @@ exports.SProductoRelevamiento = new mongoose_1.Schema({
     idSegmento: { type: mongoose_1.Types.ObjectId, ref: 'segmentos' },
     idsSubsegmentos: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentos' }],
     idsPrincipiosActivos: [{ type: mongoose_1.Types.ObjectId, ref: 'principiosActivos' }],
-    idsFamiliaQuimica: [{ type: mongoose_1.Types.ObjectId, ref: 'familiasQuimicas' }],
+    idsFamiliasQuimicas: [{ type: mongoose_1.Types.ObjectId, ref: 'familiasQuimicas' }],
 });
 exports.SProductoRelevamiento.virtual('producto', {
     foreignField: '_id',
@@ -43,6 +43,6 @@ exports.SProductoRelevamiento.virtual('principiosActivos', {
 exports.SProductoRelevamiento.virtual('familiasQuimicas', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsFamiliaQuimica',
+    localField: 'idsFamiliasQuimicas',
     ref: 'familiasQuimicas',
 });

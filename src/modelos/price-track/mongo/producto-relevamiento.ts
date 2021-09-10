@@ -28,7 +28,7 @@ export const SProductoRelevamiento = new Schema<IProductoRelevamientoDb>({
     idSegmento: { type: Types.ObjectId, ref: 'segmentos' },
     idsSubsegmentos: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
     idsPrincipiosActivos: [{ type: Types.ObjectId, ref: 'principiosActivos' }],
-    idsFamiliaQuimica: [{ type: Types.ObjectId, ref: 'familiasQuimicas' }],
+    idsFamiliasQuimicas: [{ type: Types.ObjectId, ref: 'familiasQuimicas' }],
 });
 
 SProductoRelevamiento.virtual('producto', {
@@ -69,6 +69,6 @@ SProductoRelevamiento.virtual('principiosActivos', {
 SProductoRelevamiento.virtual('familiasQuimicas', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsFamiliaQuimica',
+    localField: 'idsFamiliasQuimicas',
     ref: 'familiasQuimicas',
 });
