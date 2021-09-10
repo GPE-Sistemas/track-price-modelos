@@ -28,6 +28,12 @@ exports.SProductoRelevamiento.virtual('segmento', {
     localField: 'idSegmento',
     ref: 'segmentos',
 });
+exports.SProductoRelevamiento.virtual('subsegmentos', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idSegmento',
+    ref: 'subsegmentos',
+});
 exports.SProductoRelevamiento.virtual('principiosActivos', {
     foreignField: '_id',
     justOne: false,

@@ -52,6 +52,13 @@ SProductoRelevamiento.virtual('segmento', {
     ref: 'segmentos',
 });
 
+SProductoRelevamiento.virtual('subsegmentos', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idSegmento',
+    ref: 'subsegmentos',
+});
+
 SProductoRelevamiento.virtual('principiosActivos', {
     foreignField: '_id',
     justOne: false,
