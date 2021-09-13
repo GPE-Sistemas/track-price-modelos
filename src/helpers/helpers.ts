@@ -18,53 +18,40 @@ export function validateSchema(dato: any, schema: ObjectSchema): void {
     }
 }
 
+function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'objectid', value: string) {
+    if (type === 'string') {
+        return value;
+    } else if (type === 'date') {
+        return new Date(value);
+    } else if (type === 'number') {
+        return +value;
+    } else if (type === 'boolean' || type === 'object') {
+        return JSON.parse(value);
+    } else {
+        return new Types.ObjectId(value);
+    }
+}
+
 export function parseQueryFilters(queryParams?: IQueryParams): IParsedQuery {
     const parsedQuery: IParsedQuery = {
-        page: +(queryParams?.page || 0),
         limit: +(queryParams?.limit || 0),
         sort: queryParams?.sort?.toString() || '-fecha',
         skip: +(queryParams?.page || 0) * +(queryParams?.limit || 0),
         filter: {},
     };
-    if (queryParams) {
-        const keysIgnorar = ['_id', 'page', 'limit', 'sort', 'desde', 'hasta', 'dateField', 'search', 'searchFields'];
-        // Busqueda por _id
-        if (queryParams?._id) {
-            parsedQuery.filter._id = new Types.ObjectId(queryParams._id);
-        }
-        // Busqueda por rango de fechas
-        if (queryParams.desde && queryParams.hasta) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $gte: queryParams.desde, $lte: queryParams.hasta };
-        } else if (queryParams.desde) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $gte: queryParams.desde };
-        } else if (queryParams.hasta) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $lte: queryParams.hasta };
-        }
-        // Busqueda por regExp
-        if (queryParams.search && queryParams.searchFields) {
-            const searchFieldsArray: string[] = JSON.parse(queryParams.searchFields);
-            parsedQuery.filter.$or = [];
-            for (const searchField of searchFieldsArray) {
-                parsedQuery.filter.$or.push({ [searchField]: { $regex: queryParams.search, $options: 'i' } });
-            }
-        }
-        // Busqueda por campos especificos
-        for (const key in queryParams) {
-            if (!keysIgnorar.includes(key)) {
-                try {
-                    queryParams[key] = JSON.parse(queryParams[key]);
-                } catch (err) {
-                    // nada
-                }
-                // Campos ObjectId
-                if (key.substr(0, 2) === 'id') {
-                    parsedQuery.filter[key] = Types.ObjectId(queryParams[key]);
-                } else {
-                    parsedQuery.filter[key] = queryParams[key];
-                }
-            }
+    if (typeof queryParams?.filter === 'string') {
+        try {
+            queryParams.filter = JSON.parse(queryParams.filter);
+        } catch (err) {
+            // nada
         }
     }
+    if (typeof queryParams?.filter === 'object') {
+        for (const filtro of queryParams.filter) {
+            parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
+        }
+    }
+    
     return parsedQuery;
 }
 
@@ -116,7 +103,7 @@ export async function httpRequest<T>(url: string, method: string, queryParams?: 
                 mensaje: parsedBody.mensaje || parsedBody.message || response.statusMessage
             };
         }
-    } catch (err) {
+    } catch (err: any) {
         switch (err.code) {
             case 'ETIMEDOUT': {
                 throw {
