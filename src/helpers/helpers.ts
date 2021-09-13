@@ -18,7 +18,7 @@ export function validateSchema(dato: any, schema: ObjectSchema): void {
     }
 }
 
-function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'regex' | 'objectid', value: string) {
+function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'regex' | 'objectid', value: any) {
     if (type === 'string') {
         return value;
     } else if (type === 'date') {
