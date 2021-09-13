@@ -44,6 +44,9 @@ function getFilterValue(type, value) {
     else if (type === 'boolean' || type === 'object') {
         return JSON.parse(value);
     }
+    else if (type === 'regex') {
+        return { $regex: value, $options: 'i' };
+    }
     else {
         return new mongoose_1.Types.ObjectId(value);
     }
@@ -66,7 +69,15 @@ function parseQueryFilters(queryParams) {
     }
     if (typeof (queryParams === null || queryParams === void 0 ? void 0 : queryParams.filter) === 'object') {
         for (const filtro of queryParams.filter) {
-            parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
+            if (typeof filtro.field === 'string') {
+                parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
+            }
+            else {
+                parsedQuery.filter.$or = [];
+                for (const field of filtro.field) {
+                    parsedQuery.filter.$or.push({ [field]: getFilterValue(filtro.type, filtro.value) });
+                }
+            }
         }
     }
     return parsedQuery;

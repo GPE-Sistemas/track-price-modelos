@@ -5,8 +5,8 @@ export interface IQueryParams {
     sort?: string;
     // Filtros
     filter?: {
-        field: string;
-        type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'objectid';
+        field: string | string[];
+        type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'regex' | 'objectid';
         value: string;
     }[] | string;
     [key: string]: any;

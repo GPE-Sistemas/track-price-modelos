@@ -3,8 +3,8 @@ export interface IQueryParams {
     limit?: number;
     sort?: string;
     filter?: {
-        field: string;
-        type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'objectid';
+        field: string | string[];
+        type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'regex' | 'objectid';
         value: string;
     }[] | string;
     [key: string]: any;

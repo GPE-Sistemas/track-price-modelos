@@ -18,7 +18,7 @@ export function validateSchema(dato: any, schema: ObjectSchema): void {
     }
 }
 
-function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'objectid', value: string) {
+function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object' | 'regex' | 'objectid', value: string) {
     if (type === 'string') {
         return value;
     } else if (type === 'date') {
@@ -27,6 +27,8 @@ function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object
         return +value;
     } else if (type === 'boolean' || type === 'object') {
         return JSON.parse(value);
+    } else if (type === 'regex') {
+        return { $regex: value, $options: 'i' }
     } else {
         return new Types.ObjectId(value);
     }
@@ -48,7 +50,14 @@ export function parseQueryFilters(queryParams?: IQueryParams): IParsedQuery {
     }
     if (typeof queryParams?.filter === 'object') {
         for (const filtro of queryParams.filter) {
-            parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
+            if (typeof filtro.field === 'string') {
+                parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
+            } else {
+                parsedQuery.filter.$or = [];
+                for (const field of filtro.field) {
+                    parsedQuery.filter.$or.push({ [field]: getFilterValue(filtro.type, filtro.value) });
+                }
+            }
         }
     }
     
