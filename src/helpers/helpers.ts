@@ -26,7 +26,11 @@ function getFilterValue(type: 'number' | 'string' | 'boolean' | 'date' | 'object
     } else if (type === 'number') {
         return +value;
     } else if (type === 'boolean' || type === 'object') {
-        return JSON.parse(value);
+        try {
+            return JSON.parse(value);
+        } catch (err) {
+            return value;
+        }
     } else if (type === 'regex') {
         return { $regex: value, $options: 'i' }
     } else {

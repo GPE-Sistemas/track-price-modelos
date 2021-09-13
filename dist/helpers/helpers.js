@@ -42,7 +42,12 @@ function getFilterValue(type, value) {
         return +value;
     }
     else if (type === 'boolean' || type === 'object') {
-        return JSON.parse(value);
+        try {
+            return JSON.parse(value);
+        }
+        catch (err) {
+            return value;
+        }
     }
     else if (type === 'regex') {
         return { $regex: value, $options: 'i' };
