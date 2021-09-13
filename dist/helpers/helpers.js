@@ -31,56 +31,42 @@ function validateSchema(dato, schema) {
     }
 }
 exports.validateSchema = validateSchema;
+function getFilterValue(type, value) {
+    if (type === 'string') {
+        return value;
+    }
+    else if (type === 'date') {
+        return new Date(value);
+    }
+    else if (type === 'number') {
+        return +value;
+    }
+    else if (type === 'boolean' || type === 'object') {
+        return JSON.parse(value);
+    }
+    else {
+        return new mongoose_1.Types.ObjectId(value);
+    }
+}
 function parseQueryFilters(queryParams) {
     var _a;
     const parsedQuery = {
-        page: +((queryParams === null || queryParams === void 0 ? void 0 : queryParams.page) || 0),
         limit: +((queryParams === null || queryParams === void 0 ? void 0 : queryParams.limit) || 0),
         sort: ((_a = queryParams === null || queryParams === void 0 ? void 0 : queryParams.sort) === null || _a === void 0 ? void 0 : _a.toString()) || '-fecha',
         skip: +((queryParams === null || queryParams === void 0 ? void 0 : queryParams.page) || 0) * +((queryParams === null || queryParams === void 0 ? void 0 : queryParams.limit) || 0),
         filter: {},
     };
-    if (queryParams) {
-        const keysIgnorar = ['_id', 'page', 'limit', 'sort', 'desde', 'hasta', 'dateField', 'search', 'searchFields'];
-        // Busqueda por _id
-        if (queryParams === null || queryParams === void 0 ? void 0 : queryParams._id) {
-            parsedQuery.filter._id = new mongoose_1.Types.ObjectId(queryParams._id);
+    if (typeof (queryParams === null || queryParams === void 0 ? void 0 : queryParams.filter) === 'string') {
+        try {
+            queryParams.filter = JSON.parse(queryParams.filter);
         }
-        // Busqueda por rango de fechas
-        if (queryParams.desde && queryParams.hasta) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $gte: queryParams.desde, $lte: queryParams.hasta };
+        catch (err) {
+            // nada
         }
-        else if (queryParams.desde) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $gte: queryParams.desde };
-        }
-        else if (queryParams.hasta) {
-            parsedQuery.filter[queryParams.dateField || 'fecha'] = { $lte: queryParams.hasta };
-        }
-        // Busqueda por regExp
-        if (queryParams.search && queryParams.searchFields) {
-            const searchFieldsArray = JSON.parse(queryParams.searchFields);
-            parsedQuery.filter.$or = [];
-            for (const searchField of searchFieldsArray) {
-                parsedQuery.filter.$or.push({ [searchField]: { $regex: queryParams.search, $options: 'i' } });
-            }
-        }
-        // Busqueda por campos especificos
-        for (const key in queryParams) {
-            if (!keysIgnorar.includes(key)) {
-                try {
-                    queryParams[key] = JSON.parse(queryParams[key]);
-                }
-                catch (err) {
-                    // nada
-                }
-                // Campos ObjectId
-                if (key.substr(0, 2) === 'id') {
-                    parsedQuery.filter[key] = mongoose_1.Types.ObjectId(queryParams[key]);
-                }
-                else {
-                    parsedQuery.filter[key] = queryParams[key];
-                }
-            }
+    }
+    if (typeof (queryParams === null || queryParams === void 0 ? void 0 : queryParams.filter) === 'object') {
+        for (const filtro of queryParams.filter) {
+            parsedQuery.filter[filtro.field] = getFilterValue(filtro.type, filtro.value);
         }
     }
     return parsedQuery;

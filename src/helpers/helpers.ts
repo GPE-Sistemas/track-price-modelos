@@ -103,7 +103,7 @@ export async function httpRequest<T>(url: string, method: string, queryParams?: 
                 mensaje: parsedBody.mensaje || parsedBody.message || response.statusMessage
             };
         }
-    } catch (err: any) {
+    } catch (err) {
         switch (err.code) {
             case 'ETIMEDOUT': {
                 throw {
