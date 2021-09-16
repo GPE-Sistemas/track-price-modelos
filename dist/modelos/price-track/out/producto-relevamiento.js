@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.IProductoRelevamientoDTOSwagger = exports.IProductoRelevamientoDTOValidation = void 0;
 const joi_1 = __importDefault(require("joi"));
 const joi_to_swagger_1 = __importDefault(require("joi-to-swagger"));
+const __1 = require("..");
 const empresa_1 = require("./empresa");
 const familia_quimica_1 = require("./familia-quimica");
 const principio_activo_1 = require("./principio-activo");
@@ -18,13 +19,14 @@ exports.IProductoRelevamientoDTOValidation = joi_1.default.object({
     idEmpresa: joi_1.default.string(),
     idSegmento: joi_1.default.string(),
     idsSubsegmentos: joi_1.default.array().items(joi_1.default.string()),
-    idsPrincipiosActivos: joi_1.default.array().items(joi_1.default.string()),
-    idsFamiliasQuimicas: joi_1.default.array().items(joi_1.default.string()),
+    idsSubsegmentosPropios: joi_1.default.array().items(joi_1.default.string()),
+    composicion: joi_1.default.array().items(__1.IComposicionDTOValidation),
     // Populate
     producto: producto_1.IProductoDTOValidation,
     empresa: empresa_1.IEmpresaDTOValidation,
     segmento: segmento_1.ISegmentoDTOValidation,
     subsegmentos: subsegmento_1.ISubsegmentoDTOValidation,
+    subsegmentosPropios: __1.ISubsegmentoPropioDTOValidation,
     principiosActivos: principio_activo_1.IPrincipioActivoDTOValidation,
     familiasQuimicas: familia_quimica_1.IFamiliaQuimicaDTOValidation,
 });

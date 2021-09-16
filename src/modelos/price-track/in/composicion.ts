@@ -8,6 +8,7 @@ export const IComposicionValidation = joi.object<IComposicion>({
     formulacion: joi.string(),
     claseTox: joi.string(),
     unidad: joi.string(),
+    principal: joi.boolean(),
 });
 
 export const IComposicionSwagger = j2s(IComposicionValidation).swagger;
@@ -19,4 +20,5 @@ export interface IComposicion {
     formulacion?: string;
     claseTox?: string;
     unidad?: string;
+    principal?: boolean;
 }

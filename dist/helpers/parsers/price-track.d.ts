@@ -1,5 +1,5 @@
 import { LeanDocument } from 'mongoose';
-import { IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
+import { IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO, ISubsegmentoPropioDb, ISubsegmentoPropioDTO } from '../../modelos';
 export declare class TrackPriceParserService {
     static operador(dato: LeanDocument<IOperadorDb>): IOperadorDTO;
     static operadores(datos: LeanDocument<IOperadorDb>[]): IOperadorDTO[];
@@ -19,6 +19,8 @@ export declare class TrackPriceParserService {
     static segmentos(datos: LeanDocument<ISegmentoDb>[]): ISegmentoDTO[];
     static subsegmento(dato: LeanDocument<ISubsegmentoDb>): ISubsegmentoDTO;
     static subsegmentos(datos: LeanDocument<ISubsegmentoDb>[]): ISubsegmentoDTO[];
+    static subsegmentoPropio(dato: LeanDocument<ISubsegmentoPropioDb>): ISubsegmentoPropioDTO;
+    static subsegmentosPropios(datos: LeanDocument<ISubsegmentoPropioDb>[]): ISubsegmentoPropioDTO[];
     static familiaQuimica(dato: LeanDocument<IFamiliaQuimicaDb>): IFamiliaQuimicaDTO;
     static familiasQuimicas(datos: LeanDocument<IFamiliaQuimicaDb>[]): IFamiliaQuimicaDTO[];
     static principioActivo(dato: LeanDocument<IPrincipioActivoDb>): IPrincipioActivoDTO;

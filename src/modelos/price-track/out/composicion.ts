@@ -11,6 +11,7 @@ export const IComposicionDTOValidation = joi.object<IComposicionDTO>({
     formulacion: joi.string(),
     claseTox: joi.string(),
     unidad: joi.string(),
+    principal: joi.boolean(),
     // Populate
     familiaQuimica: IFamiliaQuimicaDTOValidation,
     principioActivo: IPrincipioActivoDTOValidation,
@@ -26,6 +27,7 @@ export interface IComposicionDTO {
     formulacion: string;
     claseTox: string;
     unidad: string;
+    principal: boolean;
     // Populate
     familiaQuimica?: IFamiliaQuimicaDTO;
     principioActivo?: IPrincipioActivoDTO;

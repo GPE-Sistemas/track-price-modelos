@@ -1,4 +1,5 @@
 import { Document, Schema, Types } from 'mongoose';
+import { ISubsegmentoPropioDb } from '..';
 import { IComposicionDb } from './composicion';
 import { IEmpresaDb } from './empresa';
 import { ISegmentoDb } from './segmento';
@@ -8,12 +9,16 @@ export interface IProductoDb extends Document {
     nombre: string;
     idEmpresa: Types.ObjectId;
     idSegmento: Types.ObjectId;
-    idsSubsegmento: Types.ObjectId[];
+    idsSubsegmentos: Types.ObjectId[];
+    idsSubsegmentosPropios: Types.ObjectId[];
     composicion?: IComposicionDb[];
     sku: string;
     numeroRegistro: string;
     tipo: string;
     unidad: string;
+    formulacion: string;
+    toxicidad: string;
+    dosisMedia: number;
     idsCompetencias: Types.ObjectId[];
     idsComplementos: Types.ObjectId[];
     idsSustitutos: Types.ObjectId[];
@@ -22,6 +27,7 @@ export interface IProductoDb extends Document {
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
+    subsegmentosPropios?: ISubsegmentoPropioDb[];
     competencias?: IProductoDb[];
     complementos?: IProductoDb[];
     sustitutos?: IProductoDb[];

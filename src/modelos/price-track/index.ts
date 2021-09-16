@@ -58,6 +58,10 @@ export * from './in/subsegmento';
 export * from './mongo/subsegmento';
 export * from './out/subsegmento';
 //
+export * from './in/subsegmento-propio';
+export * from './mongo/subsegmento-propio';
+export * from './out/subsegmento-propio';
+//
 export * from './in/ubicacion-relevamiento';
 export * from './mongo/ubicacion-relevamiento';
 export * from './out/ubicacion-relevamiento';

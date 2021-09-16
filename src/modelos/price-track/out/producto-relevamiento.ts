@@ -1,6 +1,6 @@
 import joi from 'joi';
 import j2s from 'joi-to-swagger';
-import { IUsuarioDTO } from '../../admin';
+import { IComposicionDTO, IComposicionDTOValidation, ISubsegmentoPropioDTO, ISubsegmentoPropioDTOValidation } from '..';
 import { IEmpresaDTO, IEmpresaDTOValidation } from './empresa';
 import { IFamiliaQuimicaDTO, IFamiliaQuimicaDTOValidation } from './familia-quimica';
 import { IPrincipioActivoDTO, IPrincipioActivoDTOValidation } from './principio-activo';
@@ -14,13 +14,14 @@ export const IProductoRelevamientoDTOValidation = joi.object<IProductoRelevamien
     idEmpresa: joi.string(),
     idSegmento: joi.string(),
     idsSubsegmentos: joi.array().items(joi.string()),
-    idsPrincipiosActivos: joi.array().items(joi.string()),
-    idsFamiliasQuimicas: joi.array().items(joi.string()),
+    idsSubsegmentosPropios: joi.array().items(joi.string()),
+    composicion: joi.array().items(IComposicionDTOValidation),
     // Populate
     producto: IProductoDTOValidation,
     empresa: IEmpresaDTOValidation,
     segmento: ISegmentoDTOValidation,
     subsegmentos: ISubsegmentoDTOValidation,
+    subsegmentosPropios: ISubsegmentoPropioDTOValidation,
     principiosActivos: IPrincipioActivoDTOValidation,
     familiasQuimicas: IFamiliaQuimicaDTOValidation,
 });
@@ -33,13 +34,14 @@ export interface IProductoRelevamientoDTO {
     idEmpresa: string;
     idSegmento: string;
     idsSubsegmentos: string[];
-    idsPrincipiosActivos: string[];
-    idsFamiliasQuimicas: string[];
+    idsSubsegmentosPropios: string[];
+    composicion?: IComposicionDTO[];
     // Populate
     producto?: IProductoDTO;
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
+    subsegmentosPropios?: ISubsegmentoPropioDTO[];
     principiosActivos?: IPrincipioActivoDTO[];
     familiasQuimicas?: IFamiliaQuimicaDTO[];
 }

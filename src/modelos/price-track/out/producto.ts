@@ -1,5 +1,6 @@
 import joi from 'joi';
 import j2s from 'joi-to-swagger';
+import { ISubsegmentoPropioDTO } from '..';
 import { IComposicionDTO, IComposicionDTOValidation } from './composicion';
 import { IEmpresaDTO, IEmpresaDTOValidation } from './empresa';
 import { ISegmentoDTO, ISegmentoDTOValidation } from './segmento';
@@ -10,12 +11,16 @@ export const IProductoDTOValidation = joi.object<IProductoDTO>({
     nombre: joi.string(),
     idEmpresa: joi.string(),
     idSegmento: joi.string(),
-    idsSubsegmento: joi.array().items(joi.string()),
+    idsSubsegmentos: joi.array().items(joi.string()),
+    idsSubsegmentosPropios: joi.array().items(joi.string()),
     composicion: joi.array().items(IComposicionDTOValidation),
     sku: joi.string().allow(null, ''),
     numeroRegistro: joi.string().allow(null, ''),
     tipo: joi.string().allow(null, ''),
     unidad: joi.string().allow(null, ''),
+    formulacion: joi.string().allow(null, ''),
+    toxicidad: joi.string().allow(null, ''),
+    dosisMedia: joi.number(),
     idsCompetencias: joi.array().items(joi.string()),
     idsComplementos: joi.array().items(joi.string()),
     idsSustitutos: joi.array().items(joi.string()),
@@ -39,12 +44,16 @@ export interface IProductoDTO {
     nombre: string;
     idEmpresa: string;
     idSegmento: string;
-    idsSubsegmento: string[];
+    idsSubsegmentos: string[];
+    idsSubsegmentosPropios: string[];
     composicion?: IComposicionDTO[];
     sku: string;
     numeroRegistro: string;
     tipo: string;
     unidad: string;
+    formulacion: string;
+    toxicidad: string;
+    dosisMedia: number;
     idsCompetencias?: string[];
     idsComplementos?: string[];
     idsSustitutos?: string[];
@@ -54,6 +63,7 @@ export interface IProductoDTO {
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
+    subsegmentosPropios?: ISubsegmentoPropioDTO[];
     competencias?: IProductoDTO[];
     complementos?: IProductoDTO[];
     sustitutos?: IProductoDTO[];

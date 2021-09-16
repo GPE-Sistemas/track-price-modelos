@@ -8,5 +8,6 @@ export interface IComposicion {
     formulacion?: string;
     claseTox?: string;
     unidad?: string;
+    principal?: boolean;
 }
 //# sourceMappingURL=composicion.d.ts.map

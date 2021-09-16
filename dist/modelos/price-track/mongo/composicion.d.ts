@@ -9,6 +9,7 @@ export interface IComposicionDb extends Document {
     formulacion: string;
     claseTox: string;
     unidad: string;
+    principal: boolean;
     familiaQuimica?: IFamiliaQuimicaDb;
     principioActivo?: IPrincipioActivoDb;
 }

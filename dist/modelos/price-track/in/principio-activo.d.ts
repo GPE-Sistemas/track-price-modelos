@@ -4,5 +4,6 @@ export declare const IPrincipioActivoSwagger: import("joi-to-swagger").SwaggerSc
 export interface IPrincipioActivo {
     nombre?: string;
     idFamiliaQuimica?: string;
+    nombreCorto?: string;
 }
 //# sourceMappingURL=principio-activo.d.ts.map

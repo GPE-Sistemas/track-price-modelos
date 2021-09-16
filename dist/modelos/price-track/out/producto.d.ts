@@ -1,4 +1,5 @@
 import joi from 'joi';
+import { ISubsegmentoPropioDTO } from '..';
 import { IComposicionDTO } from './composicion';
 import { IEmpresaDTO } from './empresa';
 import { ISegmentoDTO } from './segmento';
@@ -10,12 +11,16 @@ export interface IProductoDTO {
     nombre: string;
     idEmpresa: string;
     idSegmento: string;
-    idsSubsegmento: string[];
+    idsSubsegmentos: string[];
+    idsSubsegmentosPropios: string[];
     composicion?: IComposicionDTO[];
     sku: string;
     numeroRegistro: string;
     tipo: string;
     unidad: string;
+    formulacion: string;
+    toxicidad: string;
+    dosisMedia: number;
     idsCompetencias?: string[];
     idsComplementos?: string[];
     idsSustitutos?: string[];
@@ -24,6 +29,7 @@ export interface IProductoDTO {
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
+    subsegmentosPropios?: ISubsegmentoPropioDTO[];
     competencias?: IProductoDTO[];
     complementos?: IProductoDTO[];
     sustitutos?: IProductoDTO[];

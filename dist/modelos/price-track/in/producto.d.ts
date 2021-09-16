@@ -6,12 +6,16 @@ export interface IProducto {
     nombre?: string;
     idEmpresa?: string;
     idSegmento?: string;
-    idsSubsegmento?: string[];
+    idsSubsegmentos?: string[];
+    idsSubsegmentosPropios?: string[];
     composicion?: IComposicion[];
     sku?: string;
     numeroRegistro?: string;
     tipo?: string;
     unidad?: string;
+    formulacion?: string;
+    toxicidad?: string;
+    dosisMedia?: number;
     idsCompetencias?: string[];
     idsComplementos?: string[];
     idsSustitutos?: string[];

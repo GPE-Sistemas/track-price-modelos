@@ -7,12 +7,16 @@ exports.SProducto = new mongoose_1.Schema({
     nombre: { type: String, required: true },
     idEmpresa: { type: mongoose_1.Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: mongoose_1.Types.ObjectId, ref: 'segmentos' },
-    idsSubsegmento: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentos' }],
+    idsSubsegmentos: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentos' }],
+    idsSubsegmentosPropios: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentosPropios' }],
     composicion: [composicion_1.SComposicion],
     sku: { type: String },
     numeroRegistro: { type: String },
     tipo: { type: String },
     unidad: { type: String },
+    formulacion: { type: String },
+    toxicidad: { type: String },
+    dosisMedia: { type: Number },
     idsCompetencias: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
     idsComplementos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
     idsSustitutos: [{ type: mongoose_1.Types.ObjectId, ref: 'productos' }],
@@ -34,8 +38,14 @@ exports.SProducto.virtual('segmento', {
 exports.SProducto.virtual('subsegmentos', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsSubsegmento',
+    localField: 'idsSubsegmentos',
     ref: 'subsegmentos',
+});
+exports.SProducto.virtual('subsegmentosPropios', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsSubsegmentosPropios',
+    ref: 'subsegmentosPropios',
 });
 exports.SProducto.virtual('competencias', {
     foreignField: '_id',

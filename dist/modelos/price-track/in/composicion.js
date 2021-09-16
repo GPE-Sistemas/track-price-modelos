@@ -13,5 +13,6 @@ exports.IComposicionValidation = joi_1.default.object({
     formulacion: joi_1.default.string(),
     claseTox: joi_1.default.string(),
     unidad: joi_1.default.string(),
+    principal: joi_1.default.boolean(),
 });
 exports.IComposicionSwagger = joi_to_swagger_1.default(exports.IComposicionValidation).swagger;

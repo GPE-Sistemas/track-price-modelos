@@ -5,6 +5,7 @@ export declare const IPrincipioActivoDTOSwagger: import("joi-to-swagger").Swagge
 export interface IPrincipioActivoDTO {
     _id: string;
     nombre: string;
+    nombreCorto: string;
     idFamiliaQuimica: string;
     familiaQuimica?: IFamiliaQuimicaDTO;
 }

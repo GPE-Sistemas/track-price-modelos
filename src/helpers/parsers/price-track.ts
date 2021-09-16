@@ -1,5 +1,13 @@
 import { LeanDocument } from 'mongoose';
-import { IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO } from '../../modelos';
+import { 
+    IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO,
+    IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO,
+    IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb,
+    IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO,
+    IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb,
+    ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO, ISubsegmentoPropioDb,
+    ISubsegmentoPropioDTO
+} from '../../modelos';
 
 export class TrackPriceParserService {
 
@@ -201,6 +209,24 @@ export class TrackPriceParserService {
         }
         return dto;
     }
+    static subsegmentoPropio(dato: LeanDocument<ISubsegmentoPropioDb>): ISubsegmentoPropioDTO {
+        const dto: ISubsegmentoPropioDTO = {
+            _id: dato._id?.toHexString(),
+            nombre: dato.nombre,
+            idSegmento: dato.idSegmento?.toHexString(),
+            //
+            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
+        };
+        Object.keys(dto).forEach(key => !(dto as any)[key] ? delete (dto as any)[key] : {});
+        return dto;
+    }
+    static subsegmentosPropios(datos: LeanDocument<ISubsegmentoPropioDb>[]): ISubsegmentoPropioDTO[] {
+        const dto: ISubsegmentoPropioDTO[] = [];
+        for (const dato of datos) {
+            dto.push(TrackPriceParserService.subsegmentoPropio(dato));
+        }
+        return dto;
+    }
     static familiaQuimica(dato: LeanDocument<IFamiliaQuimicaDb>): IFamiliaQuimicaDTO {
         const dto: IFamiliaQuimicaDTO = {
             _id: dato._id?.toHexString(),
@@ -220,6 +246,7 @@ export class TrackPriceParserService {
         const dto: IPrincipioActivoDTO = {
             _id: dato._id?.toHexString(),
             nombre: dato.nombre,
+            nombreCorto: dato.nombreCorto,
             idFamiliaQuimica: dato.idFamiliaQuimica?.toHexString(),
             //
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -243,6 +270,7 @@ export class TrackPriceParserService {
             formulacion: dato.formulacion,
             claseTox: dato.claseTox,
             unidad: dato.unidad,
+            principal: dato.principal,
             //
             principioActivo: dato.principioActivo ? TrackPriceParserService.principioActivo(dato.principioActivo) : undefined,
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -266,7 +294,8 @@ export class TrackPriceParserService {
             idsAgrupacion2: dato.idsAgrupacion2?.map( id => id.toHexString()),
             idEmpresa: dato.idEmpresa?.toHexString(),
             idSegmento: dato.idSegmento?.toHexString(),
-            idsSubsegmento: dato.idsSubsegmento?.map( id => id.toHexString()),
+            idsSubsegmentos: dato.idsSubsegmentos?.map( id => id.toHexString()),
+            idsSubsegmentosPropios: dato.idsSubsegmentosPropios?.map( id => id.toHexString()),
             idsCompetencias: dato.idsCompetencias?.map( id => id.toHexString()),
             idsComplementos: dato.idsComplementos?.map( id => id.toHexString()),
             idsSustitutos: dato.idsSustitutos?.map( id => id.toHexString()),
@@ -274,10 +303,14 @@ export class TrackPriceParserService {
             numeroRegistro: dato.numeroRegistro,
             tipo: dato.tipo,
             unidad: dato.unidad,
+            formulacion: dato.formulacion,
+            toxicidad: dato.toxicidad,
+            dosisMedia: dato.dosisMedia,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
+            subsegmentosPropios: dato.subsegmentosPropios ? TrackPriceParserService.subsegmentosPropios(dato.subsegmentosPropios) : undefined,
             competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
             complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
             sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
@@ -328,8 +361,8 @@ export class TrackPriceParserService {
             idProducto: dato.idProducto?.toHexString(),
             idSegmento: dato.idSegmento?.toHexString(),
             idsSubsegmentos: dato.idsSubsegmentos?.map( id => id.toHexString()),            
-            idsFamiliasQuimicas: dato.idsFamiliasQuimicas?.map( id => id.toHexString()),            
-            idsPrincipiosActivos: dato.idsPrincipiosActivos?.map( id => id.toHexString()),            
+            idsSubsegmentosPropios: dato.idsSubsegmentosPropios?.map( id => id.toHexString()),            
+            composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,

@@ -1,4 +1,5 @@
 import joi from 'joi';
+import { IComposicion } from '..';
 export declare const IProductoRelevamientoValidation: joi.ObjectSchema<IProductoRelevamiento>;
 export declare const IProductoRelevamientoSwagger: import("joi-to-swagger").SwaggerSchema;
 export interface IProductoRelevamiento {
@@ -6,7 +7,7 @@ export interface IProductoRelevamiento {
     idEmpresa?: string;
     idSegmento?: string;
     idsSubsegmentos?: string[];
-    idsPrincipiosActivos?: string[];
-    idsFamiliasQuimicas?: string[];
+    idsSubsegmentosPropios?: string[];
+    composicion?: IComposicion[];
 }
 //# sourceMappingURL=producto-relevamiento.d.ts.map

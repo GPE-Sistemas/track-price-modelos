@@ -10,6 +10,7 @@ const familia_quimica_1 = require("./familia-quimica");
 exports.IPrincipioActivoDTOValidation = joi_1.default.object({
     _id: joi_1.default.string(),
     nombre: joi_1.default.string(),
+    nombreCorto: joi_1.default.string(),
     idFamiliaQuimica: joi_1.default.string(),
     //
     familiaQuimica: familia_quimica_1.IFamiliaQuimicaDTOValidation,

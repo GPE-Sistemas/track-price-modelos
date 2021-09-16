@@ -4,6 +4,7 @@ import { IFamiliaQuimicaDb } from './familia-quimica';
 export interface IPrincipioActivoDb extends Document {
     _id: Types.ObjectId;
     nombre: string;
+    nombreCorto: string;
     idFamiliaQuimica: Types.ObjectId;
     //
     familiaQuimica?: IFamiliaQuimicaDb;
@@ -11,6 +12,7 @@ export interface IPrincipioActivoDb extends Document {
 
 export const SPrincipioActivo = new Schema<IPrincipioActivoDb>({
     nombre: { type: String },
+    nombreCorto: { type: String },
     idFamiliaQuimica: { type: Types.ObjectId, ref: 'familiasQuimicas' },
 });
 

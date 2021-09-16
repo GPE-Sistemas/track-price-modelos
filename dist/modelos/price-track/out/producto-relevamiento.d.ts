@@ -1,4 +1,5 @@
 import joi from 'joi';
+import { IComposicionDTO, ISubsegmentoPropioDTO } from '..';
 import { IEmpresaDTO } from './empresa';
 import { IFamiliaQuimicaDTO } from './familia-quimica';
 import { IPrincipioActivoDTO } from './principio-activo';
@@ -13,12 +14,13 @@ export interface IProductoRelevamientoDTO {
     idEmpresa: string;
     idSegmento: string;
     idsSubsegmentos: string[];
-    idsPrincipiosActivos: string[];
-    idsFamiliasQuimicas: string[];
+    idsSubsegmentosPropios: string[];
+    composicion?: IComposicionDTO[];
     producto?: IProductoDTO;
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
+    subsegmentosPropios?: ISubsegmentoPropioDTO[];
     principiosActivos?: IPrincipioActivoDTO[];
     familiasQuimicas?: IFamiliaQuimicaDTO[];
 }

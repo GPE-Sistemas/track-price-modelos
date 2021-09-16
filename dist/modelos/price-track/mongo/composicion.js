@@ -9,6 +9,7 @@ exports.SComposicion = new mongoose_1.Schema({
     formulacion: { type: String },
     claseTox: { type: String },
     unidad: { type: String },
+    principal: { type: Boolean },
 });
 exports.SComposicion.virtual('familiaQuimica', {
     foreignField: '_id',

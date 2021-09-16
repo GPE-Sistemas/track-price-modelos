@@ -70,6 +70,10 @@ __exportStar(require("./in/subsegmento"), exports);
 __exportStar(require("./mongo/subsegmento"), exports);
 __exportStar(require("./out/subsegmento"), exports);
 //
+__exportStar(require("./in/subsegmento-propio"), exports);
+__exportStar(require("./mongo/subsegmento-propio"), exports);
+__exportStar(require("./out/subsegmento-propio"), exports);
+//
 __exportStar(require("./in/ubicacion-relevamiento"), exports);
 __exportStar(require("./mongo/ubicacion-relevamiento"), exports);
 __exportStar(require("./out/ubicacion-relevamiento"), exports);

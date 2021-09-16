@@ -1,4 +1,5 @@
 import { Document, Schema, Types } from 'mongoose';
+import { IComposicionDb, ISubsegmentoPropioDb, SComposicion } from '..';
 import { IEmpresaDb } from './empresa';
 import { IFamiliaQuimicaDb } from './familia-quimica';
 import { IPrincipioActivoDb } from './principio-activo';
@@ -11,13 +12,14 @@ export interface IProductoRelevamientoDb extends Document {
     idEmpresa: Types.ObjectId;
     idSegmento: Types.ObjectId;
     idsSubsegmentos: Types.ObjectId[];
-    idsPrincipiosActivos: Types.ObjectId[];
-    idsFamiliasQuimicas: Types.ObjectId[];
+    idsSubsegmentosPropios: Types.ObjectId[];
+    composicion?: IComposicionDb[];
     // Populate
     producto?: IProductoDb;
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
+    subsegmentosPropios?: ISubsegmentoPropioDb[];
     principiosActivos?: IPrincipioActivoDb[];
     familiasQuimicas?: IFamiliaQuimicaDb[];
 }
@@ -27,8 +29,8 @@ export const SProductoRelevamiento = new Schema<IProductoRelevamientoDb>({
     idEmpresa: { type: Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: Types.ObjectId, ref: 'segmentos' },
     idsSubsegmentos: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
-    idsPrincipiosActivos: [{ type: Types.ObjectId, ref: 'principiosActivos' }],
-    idsFamiliasQuimicas: [{ type: Types.ObjectId, ref: 'familiasQuimicas' }],
+    idsSubsegmentosPropios: [{ type: Types.ObjectId, ref: 'subsegmentosPropios' }],
+    composicion: [SComposicion],
 });
 
 SProductoRelevamiento.virtual('producto', {
@@ -59,16 +61,9 @@ SProductoRelevamiento.virtual('subsegmentos', {
     ref: 'subsegmentos',
 });
 
-SProductoRelevamiento.virtual('principiosActivos', {
+SProductoRelevamiento.virtual('subsegmentosPropios', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsPrincipiosActivos',
-    ref: 'principiosActivos',
-});
-
-SProductoRelevamiento.virtual('familiasQuimicas', {
-    foreignField: '_id',
-    justOne: false,
-    localField: 'idsFamiliasQuimicas',
-    ref: 'familiasQuimicas',
+    localField: 'idsSubsegmentosPropios',
+    ref: 'subsegmentosPropios',
 });

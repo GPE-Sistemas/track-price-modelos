@@ -1,0 +1,1 @@
+{"version":3,"file":"subsegmento-propio.d.ts","sourceRoot":"","sources":["../../../../src/modelos/price-track/in/subsegmento-propio.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,KAAK,CAAC;AAGtB,eAAO,MAAM,4BAA4B,sCAGvC,CAAC;AAEH,eAAO,MAAM,yBAAyB,wCAA4C,CAAC;AAEnF,MAAM,WAAW,kBAAkB;IAC/B,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,UAAU,CAAC,EAAE,MAAM,CAAC;CACvB"}

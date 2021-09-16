@@ -204,6 +204,25 @@ class TrackPriceParserService {
         }
         return dto;
     }
+    static subsegmentoPropio(dato) {
+        var _a, _b;
+        const dto = {
+            _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
+            nombre: dato.nombre,
+            idSegmento: (_b = dato.idSegmento) === null || _b === void 0 ? void 0 : _b.toHexString(),
+            //
+            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
+        };
+        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        return dto;
+    }
+    static subsegmentosPropios(datos) {
+        const dto = [];
+        for (const dato of datos) {
+            dto.push(TrackPriceParserService.subsegmentoPropio(dato));
+        }
+        return dto;
+    }
     static familiaQuimica(dato) {
         var _a;
         const dto = {
@@ -225,6 +244,7 @@ class TrackPriceParserService {
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
+            nombreCorto: dato.nombreCorto,
             idFamiliaQuimica: (_b = dato.idFamiliaQuimica) === null || _b === void 0 ? void 0 : _b.toHexString(),
             //
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -249,6 +269,7 @@ class TrackPriceParserService {
             formulacion: dato.formulacion,
             claseTox: dato.claseTox,
             unidad: dato.unidad,
+            principal: dato.principal,
             //
             principioActivo: dato.principioActivo ? TrackPriceParserService.principioActivo(dato.principioActivo) : undefined,
             familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
@@ -264,7 +285,7 @@ class TrackPriceParserService {
         return dto;
     }
     static producto(dato) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
@@ -273,18 +294,23 @@ class TrackPriceParserService {
             idsAgrupacion2: (_c = dato.idsAgrupacion2) === null || _c === void 0 ? void 0 : _c.map(id => id.toHexString()),
             idEmpresa: (_d = dato.idEmpresa) === null || _d === void 0 ? void 0 : _d.toHexString(),
             idSegmento: (_e = dato.idSegmento) === null || _e === void 0 ? void 0 : _e.toHexString(),
-            idsSubsegmento: (_f = dato.idsSubsegmento) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsCompetencias: (_g = dato.idsCompetencias) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
-            idsComplementos: (_h = dato.idsComplementos) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
-            idsSustitutos: (_j = dato.idsSustitutos) === null || _j === void 0 ? void 0 : _j.map(id => id.toHexString()),
+            idsSubsegmentos: (_f = dato.idsSubsegmentos) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
+            idsSubsegmentosPropios: (_g = dato.idsSubsegmentosPropios) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
+            idsCompetencias: (_h = dato.idsCompetencias) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
+            idsComplementos: (_j = dato.idsComplementos) === null || _j === void 0 ? void 0 : _j.map(id => id.toHexString()),
+            idsSustitutos: (_k = dato.idsSustitutos) === null || _k === void 0 ? void 0 : _k.map(id => id.toHexString()),
             sku: dato.sku,
             numeroRegistro: dato.numeroRegistro,
             tipo: dato.tipo,
             unidad: dato.unidad,
+            formulacion: dato.formulacion,
+            toxicidad: dato.toxicidad,
+            dosisMedia: dato.dosisMedia,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
+            subsegmentosPropios: dato.subsegmentosPropios ? TrackPriceParserService.subsegmentosPropios(dato.subsegmentosPropios) : undefined,
             competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
             complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
             sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
@@ -328,15 +354,15 @@ class TrackPriceParserService {
         return dto;
     }
     static productoRelevamiento(dato) {
-        var _a, _b, _c, _d, _e, _f, _g;
+        var _a, _b, _c, _d, _e, _f;
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             idEmpresa: (_b = dato.idEmpresa) === null || _b === void 0 ? void 0 : _b.toHexString(),
             idProducto: (_c = dato.idProducto) === null || _c === void 0 ? void 0 : _c.toHexString(),
             idSegmento: (_d = dato.idSegmento) === null || _d === void 0 ? void 0 : _d.toHexString(),
             idsSubsegmentos: (_e = dato.idsSubsegmentos) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsFamiliasQuimicas: (_f = dato.idsFamiliasQuimicas) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsPrincipiosActivos: (_g = dato.idsPrincipiosActivos) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
+            idsSubsegmentosPropios: (_f = dato.idsSubsegmentosPropios) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
+            composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,

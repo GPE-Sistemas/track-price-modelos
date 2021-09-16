@@ -1,4 +1,5 @@
 import { Document, Schema, Types } from 'mongoose';
+import { ISubsegmentoPropioDb } from '..';
 import { IComposicionDb, SComposicion } from './composicion';
 import { IEmpresaDb } from './empresa';
 import { ISegmentoDb } from './segmento';
@@ -9,12 +10,16 @@ export interface IProductoDb extends Document {
     nombre: string;
     idEmpresa: Types.ObjectId;
     idSegmento: Types.ObjectId;
-    idsSubsegmento: Types.ObjectId[];
+    idsSubsegmentos: Types.ObjectId[];
+    idsSubsegmentosPropios: Types.ObjectId[];
     composicion?: IComposicionDb[];
     sku: string;
     numeroRegistro: string;
     tipo: string;
     unidad: string;
+    formulacion: string;
+    toxicidad: string;
+    dosisMedia: number;
     idsCompetencias: Types.ObjectId[];
     idsComplementos: Types.ObjectId[];
     idsSustitutos: Types.ObjectId[];
@@ -24,6 +29,7 @@ export interface IProductoDb extends Document {
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
+    subsegmentosPropios?: ISubsegmentoPropioDb[];
     competencias?: IProductoDb[];
     complementos?: IProductoDb[];
     sustitutos?: IProductoDb[];
@@ -35,12 +41,16 @@ export const SProducto = new Schema<IProductoDb>({
     nombre: { type: String, required: true },
     idEmpresa: { type: Types.ObjectId, ref: 'empresas' },
     idSegmento: { type: Types.ObjectId, ref: 'segmentos' },
-    idsSubsegmento: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
+    idsSubsegmentos: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
+    idsSubsegmentosPropios: [{ type: Types.ObjectId, ref: 'subsegmentosPropios' }],
     composicion: [SComposicion],
     sku: { type: String },
     numeroRegistro: { type: String },
     tipo: { type: String },
     unidad: { type: String },
+    formulacion: { type: String },
+    toxicidad: { type: String },
+    dosisMedia: { type: Number },
     idsCompetencias: [{ type: Types.ObjectId, ref: 'productos' }],
     idsComplementos: [{ type: Types.ObjectId, ref: 'productos' }],
     idsSustitutos: [{ type: Types.ObjectId, ref: 'productos' }],
@@ -65,8 +75,15 @@ SProducto.virtual('segmento', {
 SProducto.virtual('subsegmentos', {
     foreignField: '_id',
     justOne: false,
-    localField: 'idsSubsegmento',
+    localField: 'idsSubsegmentos',
     ref: 'subsegmentos',
+});
+
+SProducto.virtual('subsegmentosPropios', {
+    foreignField: '_id',
+    justOne: false,
+    localField: 'idsSubsegmentosPropios',
+    ref: 'subsegmentosPropios',
 });
 
 SProducto.virtual('competencias', {
