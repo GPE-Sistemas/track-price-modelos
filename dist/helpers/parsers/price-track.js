@@ -368,8 +368,6 @@ class TrackPriceParserService {
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
             subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
-            familiasQuimicas: dato.familiasQuimicas ? TrackPriceParserService.familiasQuimicas(dato.familiasQuimicas) : undefined,
-            principiosActivos: dato.principiosActivos ? TrackPriceParserService.principiosActivos(dato.principiosActivos) : undefined,
             producto: dato.producto ? TrackPriceParserService.producto(dato.producto) : undefined,
         };
         Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});

@@ -2,8 +2,6 @@ import joi from 'joi';
 import j2s from 'joi-to-swagger';
 import { IComposicionDTO, IComposicionDTOValidation, ISubsegmentoPropioDTO, ISubsegmentoPropioDTOValidation } from '..';
 import { IEmpresaDTO, IEmpresaDTOValidation } from './empresa';
-import { IFamiliaQuimicaDTO, IFamiliaQuimicaDTOValidation } from './familia-quimica';
-import { IPrincipioActivoDTO, IPrincipioActivoDTOValidation } from './principio-activo';
 import { IProductoDTO, IProductoDTOValidation } from './producto';
 import { ISegmentoDTO, ISegmentoDTOValidation } from './segmento';
 import { ISubsegmentoDTO, ISubsegmentoDTOValidation } from './subsegmento';
@@ -23,8 +21,6 @@ export const IProductoRelevamientoDTOValidation = joi.object<IProductoRelevamien
     segmento: ISegmentoDTOValidation,
     subsegmentos: ISubsegmentoDTOValidation,
     subsegmentosPropios: ISubsegmentoPropioDTOValidation,
-    principiosActivos: IPrincipioActivoDTOValidation,
-    familiasQuimicas: IFamiliaQuimicaDTOValidation,
 });
 
 export const IProductoRelevamientoDTOSwagger = j2s(IProductoRelevamientoDTOValidation).swagger;
@@ -44,6 +40,4 @@ export interface IProductoRelevamientoDTO {
     segmento?: ISegmentoDTO;
     subsegmentos?: ISubsegmentoDTO[];
     subsegmentosPropios?: ISubsegmentoPropioDTO[];
-    principiosActivos?: IPrincipioActivoDTO[];
-    familiasQuimicas?: IFamiliaQuimicaDTO[];
 }

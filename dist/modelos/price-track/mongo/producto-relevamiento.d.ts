@@ -1,8 +1,6 @@
 import { Document, Schema, Types } from 'mongoose';
 import { IComposicionDb, ISubsegmentoPropioDb } from '..';
 import { IEmpresaDb } from './empresa';
-import { IFamiliaQuimicaDb } from './familia-quimica';
-import { IPrincipioActivoDb } from './principio-activo';
 import { IProductoDb } from './producto';
 import { ISegmentoDb } from './segmento';
 import { ISubsegmentoDb } from './subsegmento';
@@ -19,8 +17,6 @@ export interface IProductoRelevamientoDb extends Document {
     segmento?: ISegmentoDb;
     subsegmentos?: ISubsegmentoDb[];
     subsegmentosPropios?: ISubsegmentoPropioDb[];
-    principiosActivos?: IPrincipioActivoDb[];
-    familiasQuimicas?: IFamiliaQuimicaDb[];
 }
 export declare const SProductoRelevamiento: Schema<IProductoRelevamientoDb, import("mongoose").Model<any, any, any>, undefined>;
 //# sourceMappingURL=producto-relevamiento.d.ts.map
