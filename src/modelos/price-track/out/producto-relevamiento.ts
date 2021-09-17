@@ -16,6 +16,7 @@ export const IProductoRelevamientoDTOValidation = joi.object<IProductoRelevamien
     idsSubsegmentos: joi.array().items(joi.string()),
     idsSubsegmentosPropios: joi.array().items(joi.string()),
     composicion: joi.array().items(IComposicionDTOValidation),
+    numeroRegistro: joi.string(),
     // Populate
     producto: IProductoDTOValidation,
     empresa: IEmpresaDTOValidation,
@@ -36,6 +37,7 @@ export interface IProductoRelevamientoDTO {
     idsSubsegmentos: string[];
     idsSubsegmentosPropios: string[];
     composicion?: IComposicionDTO[];
+    numeroRegistro: string;
     // Populate
     producto?: IProductoDTO;
     empresa?: IEmpresaDTO;

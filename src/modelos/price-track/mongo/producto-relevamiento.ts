@@ -14,6 +14,7 @@ export interface IProductoRelevamientoDb extends Document {
     idsSubsegmentos: Types.ObjectId[];
     idsSubsegmentosPropios: Types.ObjectId[];
     composicion?: IComposicionDb[];
+    numeroRegistro: string;
     // Populate
     producto?: IProductoDb;
     empresa?: IEmpresaDb;
@@ -31,6 +32,7 @@ export const SProductoRelevamiento = new Schema<IProductoRelevamientoDb>({
     idsSubsegmentos: [{ type: Types.ObjectId, ref: 'subsegmentos' }],
     idsSubsegmentosPropios: [{ type: Types.ObjectId, ref: 'subsegmentosPropios' }],
     composicion: [SComposicion],
+    numeroRegistro: { type: String },
 });
 
 SProductoRelevamiento.virtual('producto', {

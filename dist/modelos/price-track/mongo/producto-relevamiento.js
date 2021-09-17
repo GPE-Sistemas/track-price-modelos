@@ -10,6 +10,7 @@ exports.SProductoRelevamiento = new mongoose_1.Schema({
     idsSubsegmentos: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentos' }],
     idsSubsegmentosPropios: [{ type: mongoose_1.Types.ObjectId, ref: 'subsegmentosPropios' }],
     composicion: [__1.SComposicion],
+    numeroRegistro: { type: String },
 });
 exports.SProductoRelevamiento.virtual('producto', {
     foreignField: '_id',

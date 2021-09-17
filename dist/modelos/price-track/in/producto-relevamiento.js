@@ -14,5 +14,6 @@ exports.IProductoRelevamientoValidation = joi_1.default.object({
     idsSubsegmentos: joi_1.default.array().items(joi_1.default.string()),
     idsSubsegmentosPropios: joi_1.default.array().items(joi_1.default.string()),
     composicion: joi_1.default.array().items(__1.IComposicionValidation),
+    numeroRegistro: joi_1.default.string(),
 });
 exports.IProductoRelevamientoSwagger = joi_to_swagger_1.default(exports.IProductoRelevamientoValidation).swagger;

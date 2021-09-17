@@ -16,6 +16,7 @@ export interface IProductoRelevamientoDTO {
     idsSubsegmentos: string[];
     idsSubsegmentosPropios: string[];
     composicion?: IComposicionDTO[];
+    numeroRegistro: string;
     producto?: IProductoDTO;
     empresa?: IEmpresaDTO;
     segmento?: ISegmentoDTO;

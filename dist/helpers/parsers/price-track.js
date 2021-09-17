@@ -363,6 +363,7 @@ class TrackPriceParserService {
             idsSubsegmentos: (_e = dato.idsSubsegmentos) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
             idsSubsegmentosPropios: (_f = dato.idsSubsegmentosPropios) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
             composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
+            numeroRegistro: dato.numeroRegistro,
             //
             empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
             segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,

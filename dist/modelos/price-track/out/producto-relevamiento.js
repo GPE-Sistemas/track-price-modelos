@@ -21,6 +21,7 @@ exports.IProductoRelevamientoDTOValidation = joi_1.default.object({
     idsSubsegmentos: joi_1.default.array().items(joi_1.default.string()),
     idsSubsegmentosPropios: joi_1.default.array().items(joi_1.default.string()),
     composicion: joi_1.default.array().items(__1.IComposicionDTOValidation),
+    numeroRegistro: joi_1.default.string(),
     // Populate
     producto: producto_1.IProductoDTOValidation,
     empresa: empresa_1.IEmpresaDTOValidation,

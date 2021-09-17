@@ -9,6 +9,7 @@ export const IProductoRelevamientoValidation = joi.object<IProductoRelevamiento>
     idsSubsegmentos: joi.array().items(joi.string()),
     idsSubsegmentosPropios: joi.array().items(joi.string()),
     composicion: joi.array().items(IComposicionValidation),
+    numeroRegistro: joi.string(),
 });
 
 export const IProductoRelevamientoSwagger = j2s(IProductoRelevamientoValidation).swagger;
@@ -20,4 +21,5 @@ export interface IProductoRelevamiento {
     idsSubsegmentos?: string[];
     idsSubsegmentosPropios?: string[];
     composicion?: IComposicion[];
+    numeroRegistro?: string;
 }

@@ -9,5 +9,6 @@ export interface IProductoRelevamiento {
     idsSubsegmentos?: string[];
     idsSubsegmentosPropios?: string[];
     composicion?: IComposicion[];
+    numeroRegistro?: string;
 }
 //# sourceMappingURL=producto-relevamiento.d.ts.map

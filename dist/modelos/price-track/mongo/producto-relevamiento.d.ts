@@ -13,6 +13,7 @@ export interface IProductoRelevamientoDb extends Document {
     idsSubsegmentos: Types.ObjectId[];
     idsSubsegmentosPropios: Types.ObjectId[];
     composicion?: IComposicionDb[];
+    numeroRegistro: string;
     producto?: IProductoDb;
     empresa?: IEmpresaDb;
     segmento?: ISegmentoDb;
