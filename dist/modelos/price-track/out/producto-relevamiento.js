@@ -11,6 +11,7 @@ const empresa_1 = require("./empresa");
 const producto_1 = require("./producto");
 const segmento_1 = require("./segmento");
 const subsegmento_1 = require("./subsegmento");
+const subsegmento_propio_1 = require("./subsegmento-propio");
 exports.IProductoRelevamientoDTOValidation = joi_1.default.object({
     _id: joi_1.default.string(),
     idProducto: joi_1.default.string(),
@@ -25,6 +26,6 @@ exports.IProductoRelevamientoDTOValidation = joi_1.default.object({
     empresa: empresa_1.IEmpresaDTOValidation,
     segmento: segmento_1.ISegmentoDTOValidation,
     subsegmentos: subsegmento_1.ISubsegmentoDTOValidation,
-    subsegmentosPropios: __1.ISubsegmentoPropioDTOValidation,
+    subsegmentosPropios: subsegmento_propio_1.ISubsegmentoPropioDTOValidation,
 });
 exports.IProductoRelevamientoDTOSwagger = joi_to_swagger_1.default(exports.IProductoRelevamientoDTOValidation).swagger;

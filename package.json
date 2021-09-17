@@ -19,6 +19,7 @@
     "eslint": "7.28.0"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "dev": "nodemon dist/index.js"
   }
 }

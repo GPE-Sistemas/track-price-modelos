@@ -1,9 +1,10 @@
 import joi from 'joi';
-import { IComposicionDTO, ISubsegmentoPropioDTO } from '..';
+import { IComposicionDTO } from '..';
 import { IEmpresaDTO } from './empresa';
 import { IProductoDTO } from './producto';
 import { ISegmentoDTO } from './segmento';
 import { ISubsegmentoDTO } from './subsegmento';
+import { ISubsegmentoPropioDTO } from './subsegmento-propio';
 export declare const IProductoRelevamientoDTOValidation: joi.ObjectSchema<IProductoRelevamientoDTO>;
 export declare const IProductoRelevamientoDTOSwagger: import("joi-to-swagger").SwaggerSchema;
 export interface IProductoRelevamientoDTO {

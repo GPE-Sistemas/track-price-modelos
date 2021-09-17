@@ -1,10 +1,11 @@
 import joi from 'joi';
 import j2s from 'joi-to-swagger';
-import { IComposicionDTO, IComposicionDTOValidation, ISubsegmentoPropioDTO, ISubsegmentoPropioDTOValidation } from '..';
+import { IComposicionDTO, IComposicionDTOValidation } from '..';
 import { IEmpresaDTO, IEmpresaDTOValidation } from './empresa';
 import { IProductoDTO, IProductoDTOValidation } from './producto';
 import { ISegmentoDTO, ISegmentoDTOValidation } from './segmento';
 import { ISubsegmentoDTO, ISubsegmentoDTOValidation } from './subsegmento';
+import { ISubsegmentoPropioDTO, ISubsegmentoPropioDTOValidation } from './subsegmento-propio';
 
 export const IProductoRelevamientoDTOValidation = joi.object<IProductoRelevamientoDTO>({
     _id: joi.string(),
