@@ -5,13 +5,18 @@ export interface IPagoRelevamientoDTO {
     _id: string;
     precioFinalU$S?: number;
     precioContadoU$S?: number;
-    plazoDias?: number;
-    metodos?: string[];
-    tarjeta?: string;
-    comisionTarjeta?: number;
-    tasaMensual?: number;
     volumen?: number;
-    plusCanje?: number;
-    comisionCanje?: number;
+    metodos?: {
+        metodo?: string;
+        plazoDias?: number;
+        tasaMensual?: number;
+        tarjeta?: string;
+        diasLibres?: number;
+        plusCanje?: number;
+        comisionCanje?: number;
+        precioFinalU$S?: number;
+        precioContadoU$S?: number;
+        porcentajePago?: number;
+    }[];
 }
 //# sourceMappingURL=pago-relevamiento.d.ts.map

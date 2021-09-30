@@ -5,12 +5,6 @@ const mongoose_1 = require("mongoose");
 exports.SPagoRelevamiento = new mongoose_1.Schema({
     precioFinalU$S: { type: Number },
     precioContadoU$S: { type: Number },
-    plazoDias: { type: Number },
-    metodos: [{ type: String }],
-    tarjeta: { type: String },
-    comisionTarjeta: { type: Number },
-    tasaMensual: { type: Number },
     volumen: { type: Number },
-    plusCanje: { type: Number },
-    comisionCanje: { type: Number },
+    metodos: [{ type: Object }],
 });
