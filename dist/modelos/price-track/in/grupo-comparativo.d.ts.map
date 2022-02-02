@@ -1,0 +1,1 @@
+{"version":3,"file":"grupo-comparativo.d.ts","sourceRoot":"","sources":["../../../../src/modelos/price-track/in/grupo-comparativo.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,KAAK,CAAC;AAGtB,eAAO,MAAM,2BAA2B,qCAGtC,CAAC;AAEH,eAAO,MAAM,wBAAwB,wCAE5B,CAAC;AAEV,MAAM,WAAW,iBAAiB;IAChC,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,WAAW,CAAC,EAAE,MAAM,EAAE,CAAC;CACxB"}
