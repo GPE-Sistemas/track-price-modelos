@@ -3,7 +3,7 @@ import j2s from "joi-to-swagger";
 
 export const IGrupoComparativoValidation = joi.object<IGrupoComparativo>({
   nombre: joi.string(),
-  productos: joi.array().items(joi.string()),
+  idProductos: joi.array().items(joi.string()),
 });
 
 export const IGrupoComparativoSwagger = j2s(
@@ -12,5 +12,5 @@ export const IGrupoComparativoSwagger = j2s(
 
 export interface IGrupoComparativo {
   nombre?: string;
-  productos?: string[];
+  idProductos?: string[];
 }

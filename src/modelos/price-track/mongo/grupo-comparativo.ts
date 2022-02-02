@@ -1,12 +1,16 @@
 import { Document, Schema, Types } from "mongoose";
+import { IProductoDb } from "./producto";
 
 export interface IGrupoComparativoDb extends Document {
   _id: Types.ObjectId;
+  fecha: Date;
   nombre: string;
-  productos: Types.ObjectId[];
+  idProductos: Types.ObjectId[];
+  productos: IProductoDb[];
 }
 
 export const SGrupoComparativo = new Schema<IGrupoComparativoDb>({
   nombre: { type: String, required: true },
-  productos: [{ type: Types.ObjectId, ref: "productos" }],
+  fecha: { type: Date, required: true, default: Date.now },
+  idProductos: [{ type: Types.ObjectId, ref: "productos" }],
 });
