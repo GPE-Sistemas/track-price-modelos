@@ -14,9 +14,9 @@ export const IGrupoComparativoDTOSwagger = j2s(
 ).swagger;
 
 export interface IGrupoComparativoDTO {
-  _id?: string;
-  nombre?: string;
+  _id: string;
+  nombre: string;
   fecha: string;
-  idProductos?: string[];
+  idProductos: string[];
   productos?: string[];
 }
