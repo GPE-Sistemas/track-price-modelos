@@ -5,6 +5,7 @@ export const IGrupoComparativoDTOValidation = joi.object<IGrupoComparativoDTO>({
   _id: joi.string(),
   nombre: joi.string(),
   fecha: joi.string(),
+  idProductos: joi.array().items(joi.string()),
   productos: joi.array().items(joi.string()),
 });
 
@@ -16,5 +17,6 @@ export interface IGrupoComparativoDTO {
   _id?: string;
   nombre?: string;
   fecha: string;
+  idProductos?: string[];
   productos?: string[];
 }

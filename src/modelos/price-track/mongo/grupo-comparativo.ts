@@ -14,3 +14,10 @@ export const SGrupoComparativo = new Schema<IGrupoComparativoDb>({
   fecha: { type: Date, required: true, default: Date.now },
   idProductos: [{ type: Types.ObjectId, ref: "productos" }],
 });
+
+SGrupoComparativo.virtual("productos", {
+  foreignField: "_id",
+  localField: "idProductos",
+  justOne: false,
+  ref: "productos",
+});
