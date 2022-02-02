@@ -1,5 +1,6 @@
 import joi from "joi";
 import j2s from "joi-to-swagger";
+import { IProductoDTO } from "./producto";
 
 export const IGrupoComparativoDTOValidation = joi.object<IGrupoComparativoDTO>({
   _id: joi.string(),
@@ -18,5 +19,5 @@ export interface IGrupoComparativoDTO {
   nombre: string;
   fecha: string;
   idProductos: string[];
-  productos?: string[];
+  productos?: IProductoDTO[];
 }
