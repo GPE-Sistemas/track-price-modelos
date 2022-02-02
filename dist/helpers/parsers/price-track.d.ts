@@ -1,5 +1,5 @@
-import { LeanDocument } from 'mongoose';
-import { IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO, ISubsegmentoPropioDb, ISubsegmentoPropioDTO } from '../../modelos';
+import { LeanDocument } from "mongoose";
+import { IComposicionDb, IComposicionDTO, IDepartamentoDb, IDepartamentoDTO, IEmpresaDb, IEmpresaDTO, IFamiliaQuimicaDb, IFamiliaQuimicaDTO, ILocalidadDb, ILocalidadDTO, IOperadorDb, IOperadorDTO, IPagoRelevamientoDb, IPagoRelevamientoDTO, IPrincipioActivoDb, IPrincipioActivoDTO, IProductoDb, IProductoDTO, IProductoRelevamientoDb, IProductoRelevamientoDTO, IProvinciaDb, IProvinciaDTO, IRegionDb, IRegionDTO, IRelevamientoDb, IRelevamientoDTO, ISegmentoDb, ISegmentoDTO, ISubsegmentoDb, ISubsegmentoDTO, IUbicacionRelevamientoDb, IUbicacionRelevamientoDTO, IZonaDb, IZonaDTO, ISubsegmentoPropioDb, ISubsegmentoPropioDTO, IGrupoComparativoDTO, IGrupoComparativoDb } from "../../modelos";
 export declare class TrackPriceParserService {
     static operador(dato: LeanDocument<IOperadorDb>): IOperadorDTO;
     static operadores(datos: LeanDocument<IOperadorDb>[]): IOperadorDTO[];
@@ -37,5 +37,7 @@ export declare class TrackPriceParserService {
     static ubicacionesRelevamiento(datos: LeanDocument<IUbicacionRelevamientoDb>[]): IUbicacionRelevamientoDTO[];
     static relevamiento(dato: LeanDocument<IRelevamientoDb>): IRelevamientoDTO;
     static relevamientos(datos: LeanDocument<IRelevamientoDb>[]): IRelevamientoDTO[];
+    static grupoComparativo(dato: LeanDocument<IGrupoComparativoDb>): IGrupoComparativoDTO;
+    static gruposComparativos(datos: LeanDocument<IGrupoComparativoDb>[]): IGrupoComparativoDTO[];
 }
 //# sourceMappingURL=price-track.d.ts.map

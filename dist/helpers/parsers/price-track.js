@@ -20,20 +20,28 @@ class TrackPriceParserService {
             usuario: dato.usuario,
             //
             idUsuario: (_c = dato.idUsuario) === null || _c === void 0 ? void 0 : _c.toHexString(),
-            idsDepartamento: (_d = dato.idsDepartamento) === null || _d === void 0 ? void 0 : _d.map(id => id.toHexString()),
-            idsZona: (_e = dato.idsZona) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsProvincia: (_f = dato.idsProvincia) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsRegion: (_g = dato.idsRegion) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
-            idsLocalidad: (_h = dato.idsLocalidad) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
+            idsDepartamento: (_d = dato.idsDepartamento) === null || _d === void 0 ? void 0 : _d.map((id) => id.toHexString()),
+            idsZona: (_e = dato.idsZona) === null || _e === void 0 ? void 0 : _e.map((id) => id.toHexString()),
+            idsProvincia: (_f = dato.idsProvincia) === null || _f === void 0 ? void 0 : _f.map((id) => id.toHexString()),
+            idsRegion: (_g = dato.idsRegion) === null || _g === void 0 ? void 0 : _g.map((id) => id.toHexString()),
+            idsLocalidad: (_h = dato.idsLocalidad) === null || _h === void 0 ? void 0 : _h.map((id) => id.toHexString()),
             global: dato.global,
             //
-            regiones: dato.regiones ? TrackPriceParserService.regiones(dato.regiones) : undefined,
-            provincias: dato.provincias ? TrackPriceParserService.provincias(dato.provincias) : undefined,
+            regiones: dato.regiones
+                ? TrackPriceParserService.regiones(dato.regiones)
+                : undefined,
+            provincias: dato.provincias
+                ? TrackPriceParserService.provincias(dato.provincias)
+                : undefined,
             zonas: dato.zonas ? TrackPriceParserService.zonas(dato.zonas) : undefined,
-            departamentos: dato.departamentos ? TrackPriceParserService.departamentos(dato.departamentos) : undefined,
-            localidades: dato.localidades ? TrackPriceParserService.localidades(dato.localidades) : undefined,
+            departamentos: dato.departamentos
+                ? TrackPriceParserService.departamentos(dato.departamentos)
+                : undefined,
+            localidades: dato.localidades
+                ? TrackPriceParserService.localidades(dato.localidades)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static operadores(datos) {
@@ -51,7 +59,7 @@ class TrackPriceParserService {
             nombre: dato.nombre,
             coordenadas: dato.coordenadas,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static regiones(datos) {
@@ -69,9 +77,11 @@ class TrackPriceParserService {
             idRegion: (_b = dato.idRegion) === null || _b === void 0 ? void 0 : _b.toHexString(),
             nombre: dato.nombre,
             //
-            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
+            region: dato.region
+                ? TrackPriceParserService.region(dato.region)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static zonas(datos) {
@@ -89,9 +99,11 @@ class TrackPriceParserService {
             idRegion: (_b = dato.idRegion) === null || _b === void 0 ? void 0 : _b.toHexString(),
             nombre: dato.nombre,
             //
-            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
+            region: dato.region
+                ? TrackPriceParserService.region(dato.region)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static provincias(datos) {
@@ -111,11 +123,15 @@ class TrackPriceParserService {
             idRegion: (_d = dato.idRegion) === null || _d === void 0 ? void 0 : _d.toHexString(),
             nombre: dato.nombre,
             //
-            provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
+            provincia: dato.provincia
+                ? TrackPriceParserService.provincia(dato.provincia)
+                : undefined,
             zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
-            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
+            region: dato.region
+                ? TrackPriceParserService.region(dato.region)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static departamentos(datos) {
@@ -136,12 +152,18 @@ class TrackPriceParserService {
             idRegion: (_e = dato.idRegion) === null || _e === void 0 ? void 0 : _e.toHexString(),
             nombre: dato.nombre,
             //
-            departamento: dato.departamento ? TrackPriceParserService.departamento(dato.departamento) : undefined,
-            provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
+            departamento: dato.departamento
+                ? TrackPriceParserService.departamento(dato.departamento)
+                : undefined,
+            provincia: dato.provincia
+                ? TrackPriceParserService.provincia(dato.provincia)
+                : undefined,
             zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
-            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
+            region: dato.region
+                ? TrackPriceParserService.region(dato.region)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static localidades(datos) {
@@ -159,7 +181,7 @@ class TrackPriceParserService {
             nombre: dato.nombre,
             propia: dato.propia,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static empresas(datos) {
@@ -175,7 +197,7 @@ class TrackPriceParserService {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static segmentos(datos) {
@@ -192,9 +214,11 @@ class TrackPriceParserService {
             nombre: dato.nombre,
             idSegmento: (_b = dato.idSegmento) === null || _b === void 0 ? void 0 : _b.toHexString(),
             //
-            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
+            segmento: dato.segmento
+                ? TrackPriceParserService.segmento(dato.segmento)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static subsegmentos(datos) {
@@ -211,9 +235,11 @@ class TrackPriceParserService {
             nombre: dato.nombre,
             idSegmento: (_b = dato.idSegmento) === null || _b === void 0 ? void 0 : _b.toHexString(),
             //
-            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
+            segmento: dato.segmento
+                ? TrackPriceParserService.segmento(dato.segmento)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static subsegmentosPropios(datos) {
@@ -229,7 +255,7 @@ class TrackPriceParserService {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static familiasQuimicas(datos) {
@@ -247,9 +273,11 @@ class TrackPriceParserService {
             nombreCorto: dato.nombreCorto,
             idFamiliaQuimica: (_b = dato.idFamiliaQuimica) === null || _b === void 0 ? void 0 : _b.toHexString(),
             //
-            familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
+            familiaQuimica: dato.familiaQuimica
+                ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static principiosActivos(datos) {
@@ -271,10 +299,14 @@ class TrackPriceParserService {
             unidad: dato.unidad,
             principal: dato.principal,
             //
-            principioActivo: dato.principioActivo ? TrackPriceParserService.principioActivo(dato.principioActivo) : undefined,
-            familiaQuimica: dato.familiaQuimica ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica) : undefined,
+            principioActivo: dato.principioActivo
+                ? TrackPriceParserService.principioActivo(dato.principioActivo)
+                : undefined,
+            familiaQuimica: dato.familiaQuimica
+                ? TrackPriceParserService.familiaQuimica(dato.familiaQuimica)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static composiciones(datos) {
@@ -289,16 +321,18 @@ class TrackPriceParserService {
         const dto = {
             _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
             nombre: dato.nombre,
-            composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
-            idsAgrupacion1: (_b = dato.idsAgrupacion1) === null || _b === void 0 ? void 0 : _b.map(id => id.toHexString()),
-            idsAgrupacion2: (_c = dato.idsAgrupacion2) === null || _c === void 0 ? void 0 : _c.map(id => id.toHexString()),
+            composicion: dato.composicion
+                ? TrackPriceParserService.composiciones(dato.composicion)
+                : undefined,
+            idsAgrupacion1: (_b = dato.idsAgrupacion1) === null || _b === void 0 ? void 0 : _b.map((id) => id.toHexString()),
+            idsAgrupacion2: (_c = dato.idsAgrupacion2) === null || _c === void 0 ? void 0 : _c.map((id) => id.toHexString()),
             idEmpresa: (_d = dato.idEmpresa) === null || _d === void 0 ? void 0 : _d.toHexString(),
             idSegmento: (_e = dato.idSegmento) === null || _e === void 0 ? void 0 : _e.toHexString(),
-            idsSubsegmentos: (_f = dato.idsSubsegmentos) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            idsSubsegmentosPropios: (_g = dato.idsSubsegmentosPropios) === null || _g === void 0 ? void 0 : _g.map(id => id.toHexString()),
-            idsCompetencias: (_h = dato.idsCompetencias) === null || _h === void 0 ? void 0 : _h.map(id => id.toHexString()),
-            idsComplementos: (_j = dato.idsComplementos) === null || _j === void 0 ? void 0 : _j.map(id => id.toHexString()),
-            idsSustitutos: (_k = dato.idsSustitutos) === null || _k === void 0 ? void 0 : _k.map(id => id.toHexString()),
+            idsSubsegmentos: (_f = dato.idsSubsegmentos) === null || _f === void 0 ? void 0 : _f.map((id) => id.toHexString()),
+            idsSubsegmentosPropios: (_g = dato.idsSubsegmentosPropios) === null || _g === void 0 ? void 0 : _g.map((id) => id.toHexString()),
+            idsCompetencias: (_h = dato.idsCompetencias) === null || _h === void 0 ? void 0 : _h.map((id) => id.toHexString()),
+            idsComplementos: (_j = dato.idsComplementos) === null || _j === void 0 ? void 0 : _j.map((id) => id.toHexString()),
+            idsSustitutos: (_k = dato.idsSustitutos) === null || _k === void 0 ? void 0 : _k.map((id) => id.toHexString()),
             sku: dato.sku,
             numeroRegistro: dato.numeroRegistro,
             tipo: dato.tipo,
@@ -307,17 +341,35 @@ class TrackPriceParserService {
             toxicidad: dato.toxicidad,
             dosisMedia: dato.dosisMedia,
             //
-            empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
-            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
-            subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
-            subsegmentosPropios: dato.subsegmentosPropios ? TrackPriceParserService.subsegmentosPropios(dato.subsegmentosPropios) : undefined,
-            competencias: dato.competencias ? TrackPriceParserService.productos(dato.competencias) : undefined,
-            complementos: dato.complementos ? TrackPriceParserService.productos(dato.complementos) : undefined,
-            sustitutos: dato.sustitutos ? TrackPriceParserService.productos(dato.sustitutos) : undefined,
-            agrupacion1: dato.agrupacion1 ? TrackPriceParserService.productos(dato.agrupacion1) : undefined,
-            agrupacion2: dato.agrupacion2 ? TrackPriceParserService.productos(dato.agrupacion2) : undefined,
+            empresa: dato.empresa
+                ? TrackPriceParserService.empresa(dato.empresa)
+                : undefined,
+            segmento: dato.segmento
+                ? TrackPriceParserService.segmento(dato.segmento)
+                : undefined,
+            subsegmentos: dato.subsegmentos
+                ? TrackPriceParserService.subsegmentos(dato.subsegmentos)
+                : undefined,
+            subsegmentosPropios: dato.subsegmentosPropios
+                ? TrackPriceParserService.subsegmentosPropios(dato.subsegmentosPropios)
+                : undefined,
+            competencias: dato.competencias
+                ? TrackPriceParserService.productos(dato.competencias)
+                : undefined,
+            complementos: dato.complementos
+                ? TrackPriceParserService.productos(dato.complementos)
+                : undefined,
+            sustitutos: dato.sustitutos
+                ? TrackPriceParserService.productos(dato.sustitutos)
+                : undefined,
+            agrupacion1: dato.agrupacion1
+                ? TrackPriceParserService.productos(dato.agrupacion1)
+                : undefined,
+            agrupacion2: dato.agrupacion2
+                ? TrackPriceParserService.productos(dato.agrupacion2)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static productos(datos) {
@@ -337,7 +389,7 @@ class TrackPriceParserService {
             volumen: dato.volumen,
             metodos: dato.metodos,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static pagosRelevamiento(datos) {
@@ -354,17 +406,27 @@ class TrackPriceParserService {
             idEmpresa: (_b = dato.idEmpresa) === null || _b === void 0 ? void 0 : _b.toHexString(),
             idProducto: (_c = dato.idProducto) === null || _c === void 0 ? void 0 : _c.toHexString(),
             idSegmento: (_d = dato.idSegmento) === null || _d === void 0 ? void 0 : _d.toHexString(),
-            idsSubsegmentos: (_e = dato.idsSubsegmentos) === null || _e === void 0 ? void 0 : _e.map(id => id.toHexString()),
-            idsSubsegmentosPropios: (_f = dato.idsSubsegmentosPropios) === null || _f === void 0 ? void 0 : _f.map(id => id.toHexString()),
-            composicion: dato.composicion ? TrackPriceParserService.composiciones(dato.composicion) : undefined,
+            idsSubsegmentos: (_e = dato.idsSubsegmentos) === null || _e === void 0 ? void 0 : _e.map((id) => id.toHexString()),
+            idsSubsegmentosPropios: (_f = dato.idsSubsegmentosPropios) === null || _f === void 0 ? void 0 : _f.map((id) => id.toHexString()),
+            composicion: dato.composicion
+                ? TrackPriceParserService.composiciones(dato.composicion)
+                : undefined,
             numeroRegistro: dato.numeroRegistro,
             //
-            empresa: dato.empresa ? TrackPriceParserService.empresa(dato.empresa) : undefined,
-            segmento: dato.segmento ? TrackPriceParserService.segmento(dato.segmento) : undefined,
-            subsegmentos: dato.subsegmentos ? TrackPriceParserService.subsegmentos(dato.subsegmentos) : undefined,
-            producto: dato.producto ? TrackPriceParserService.producto(dato.producto) : undefined,
+            empresa: dato.empresa
+                ? TrackPriceParserService.empresa(dato.empresa)
+                : undefined,
+            segmento: dato.segmento
+                ? TrackPriceParserService.segmento(dato.segmento)
+                : undefined,
+            subsegmentos: dato.subsegmentos
+                ? TrackPriceParserService.subsegmentos(dato.subsegmentos)
+                : undefined,
+            producto: dato.producto
+                ? TrackPriceParserService.producto(dato.producto)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static productosRelevamiento(datos) {
@@ -385,13 +447,21 @@ class TrackPriceParserService {
             idRegion: (_e = dato.idRegion) === null || _e === void 0 ? void 0 : _e.toHexString(),
             idZona: (_f = dato.idZona) === null || _f === void 0 ? void 0 : _f.toHexString(),
             //
-            departamento: dato.departamento ? TrackPriceParserService.departamento(dato.departamento) : undefined,
-            localidad: dato.localidad ? TrackPriceParserService.localidad(dato.localidad) : undefined,
-            provincia: dato.provincia ? TrackPriceParserService.provincia(dato.provincia) : undefined,
-            region: dato.region ? TrackPriceParserService.region(dato.region) : undefined,
+            departamento: dato.departamento
+                ? TrackPriceParserService.departamento(dato.departamento)
+                : undefined,
+            localidad: dato.localidad
+                ? TrackPriceParserService.localidad(dato.localidad)
+                : undefined,
+            provincia: dato.provincia
+                ? TrackPriceParserService.provincia(dato.provincia)
+                : undefined,
+            region: dato.region
+                ? TrackPriceParserService.region(dato.region)
+                : undefined,
             zona: dato.zona ? TrackPriceParserService.zona(dato.zona) : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static ubicacionesRelevamiento(datos) {
@@ -412,21 +482,51 @@ class TrackPriceParserService {
             fuente: dato.fuente,
             idUsuario: (_c = dato.idUsuario) === null || _c === void 0 ? void 0 : _c.toHexString(),
             observaciones: dato.observaciones,
-            pago: dato.pago ? TrackPriceParserService.pagoRelevamiento(dato.pago) : undefined,
-            producto: dato.producto ? TrackPriceParserService.productoRelevamiento(dato.producto) : undefined,
-            ubicacion: dato.ubicacion ? TrackPriceParserService.ubicacionRelevamiento(dato.ubicacion) : undefined,
+            pago: dato.pago
+                ? TrackPriceParserService.pagoRelevamiento(dato.pago)
+                : undefined,
+            producto: dato.producto
+                ? TrackPriceParserService.productoRelevamiento(dato.producto)
+                : undefined,
+            ubicacion: dato.ubicacion
+                ? TrackPriceParserService.ubicacionRelevamiento(dato.ubicacion)
+                : undefined,
             tipoRelevamiento: dato.tipoRelevamiento,
             verificado: dato.verificado,
             //
-            operador: dato.operador ? TrackPriceParserService.operador(dato.operador) : undefined,
+            operador: dato.operador
+                ? TrackPriceParserService.operador(dato.operador)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static relevamientos(datos) {
         const dto = [];
         for (const dato of datos) {
             dto.push(TrackPriceParserService.relevamiento(dato));
+        }
+        return dto;
+    }
+    // Grupos Comparativos
+    static grupoComparativo(dato) {
+        var _a, _b, _c;
+        const dto = {
+            _id: (_a = dato._id) === null || _a === void 0 ? void 0 : _a.toHexString(),
+            nombre: dato.nombre,
+            fecha: (_b = dato.fecha) === null || _b === void 0 ? void 0 : _b.toISOString(),
+            idProductos: (_c = dato.idProductos) === null || _c === void 0 ? void 0 : _c.map((id) => id.toHexString()),
+            productos: dato.productos
+                ? TrackPriceParserService.productos(dato.productos)
+                : undefined,
+        };
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
+        return dto;
+    }
+    static gruposComparativos(datos) {
+        const dto = [];
+        for (const dato of datos) {
+            dto.push(TrackPriceParserService.grupoComparativo(dato));
         }
         return dto;
     }
