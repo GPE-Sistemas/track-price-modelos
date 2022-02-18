@@ -1,10 +1,6 @@
 import joi from 'joi';
 import j2s from 'joi-to-swagger';
-import {
-  IGrupoComparativoDTO,
-  IGrupoComparativoDTOValidation,
-  ISubsegmentoPropioDTO,
-} from '..';
+import { ISubsegmentoPropioDTO } from '..';
 import { IComposicionDTO, IComposicionDTOValidation } from './composicion';
 import { IEmpresaDTO, IEmpresaDTOValidation } from './empresa';
 import { ISegmentoDTO, ISegmentoDTOValidation } from './segmento';
@@ -39,7 +35,6 @@ export const IProductoDTOValidation = joi.object<IProductoDTO>({
   sustitutos: joi.object(),
   agrupacion1: joi.object(),
   agrupacion2: joi.object(),
-  gruposComparativos: joi.array().items(IGrupoComparativoDTOValidation),
 });
 
 export const IProductoDTOSwagger = j2s(IProductoDTOValidation).swagger;
@@ -74,5 +69,4 @@ export interface IProductoDTO {
   sustitutos?: IProductoDTO[];
   agrupacion1?: IProductoDTO[];
   agrupacion2?: IProductoDTO[];
-  gruposComparativos?: IGrupoComparativoDTO[];
 }
