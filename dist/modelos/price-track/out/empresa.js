@@ -10,5 +10,6 @@ exports.IEmpresaDTOValidation = joi_1.default.object({
     _id: joi_1.default.string(),
     nombre: joi_1.default.string(),
     propia: joi_1.default.boolean(),
+    color: joi_1.default.string(),
 });
 exports.IEmpresaDTOSwagger = joi_to_swagger_1.default(exports.IEmpresaDTOValidation).swagger;

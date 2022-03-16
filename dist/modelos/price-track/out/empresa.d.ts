@@ -5,5 +5,6 @@ export interface IEmpresaDTO {
     _id: string;
     nombre: string;
     propia: boolean;
+    color: string;
 }
 //# sourceMappingURL=empresa.d.ts.map

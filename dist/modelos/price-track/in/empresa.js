@@ -9,5 +9,6 @@ const joi_to_swagger_1 = __importDefault(require("joi-to-swagger"));
 exports.IEmpresaValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     propia: joi_1.default.boolean(),
+    color: joi_1.default.string(),
 });
 exports.IEmpresaSwagger = joi_to_swagger_1.default(exports.IEmpresaValidation).swagger;

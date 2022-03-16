@@ -4,5 +4,6 @@ export declare const IEmpresaSwagger: import("joi-to-swagger").SwaggerSchema;
 export interface IEmpresa {
     nombre?: string;
     propia?: boolean;
+    color?: string;
 }
 //# sourceMappingURL=empresa.d.ts.map
