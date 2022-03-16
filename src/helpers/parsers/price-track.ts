@@ -1,4 +1,4 @@
-import { LeanDocument } from "mongoose";
+import { LeanDocument } from 'mongoose';
 import {
   IComposicionDb,
   IComposicionDTO,
@@ -39,7 +39,7 @@ import {
   IGrupoComparativo,
   IGrupoComparativoDTO,
   IGrupoComparativoDb,
-} from "../../modelos";
+} from '../../modelos';
 
 export class TrackPriceParserService {
   // Usuarios
@@ -231,6 +231,7 @@ export class TrackPriceParserService {
       _id: dato._id?.toHexString(),
       nombre: dato.nombre,
       propia: dato.propia,
+      color: dato.color,
     };
     Object.keys(dto).forEach((key) =>
       !(dto as any)[key] ? delete (dto as any)[key] : {}
