@@ -6,4 +6,5 @@ exports.SCliente = new mongoose_1.Schema({
     admin: { type: Boolean },
     activo: { type: Boolean },
     nombre: { type: String, required: true, unique: true },
+    condicionComercialDefault: { type: String },
 });

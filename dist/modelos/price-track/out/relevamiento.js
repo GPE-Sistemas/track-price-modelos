@@ -27,4 +27,4 @@ exports.IRelevamientoDTOValidation = joi_1.default.object({
     //
     operador: operador_1.IOperadorDTOValidation
 });
-exports.IRelevamientoDTOSwagger = joi_to_swagger_1.default(exports.IRelevamientoDTOValidation).swagger;
+exports.IRelevamientoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IRelevamientoDTOValidation).swagger;

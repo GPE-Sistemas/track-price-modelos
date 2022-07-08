@@ -14,4 +14,4 @@ exports.ISubsegmentoDTOValidation = joi_1.default.object({
     //
     segmento: segmento_1.ISegmentoDTOValidation,
 });
-exports.ISubsegmentoDTOSwagger = joi_to_swagger_1.default(exports.ISubsegmentoDTOValidation).swagger;
+exports.ISubsegmentoDTOSwagger = (0, joi_to_swagger_1.default)(exports.ISubsegmentoDTOValidation).swagger;

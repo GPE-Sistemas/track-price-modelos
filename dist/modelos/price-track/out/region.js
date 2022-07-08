@@ -12,4 +12,4 @@ exports.IRegionDTOValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     coordenadas: joi_1.default.array().items(shared_1.ICoordenadasValidation),
 });
-exports.IRegionDTOSwagger = joi_to_swagger_1.default(exports.IRegionDTOValidation).swagger;
+exports.IRegionDTOSwagger = (0, joi_to_swagger_1.default)(exports.IRegionDTOValidation).swagger;

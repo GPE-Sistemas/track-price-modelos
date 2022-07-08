@@ -27,4 +27,4 @@ exports.IUbicacionRelevamientoDTOValidation = joi_1.default.object({
     departamento: departamento_1.IDepartamentoDTOValidation,
     localidad: localidad_1.ILocalidadDTOValidation,
 });
-exports.IUbicacionRelevamientoDTOSwagger = joi_to_swagger_1.default(exports.IUbicacionRelevamientoDTOValidation).swagger;
+exports.IUbicacionRelevamientoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IUbicacionRelevamientoDTOValidation).swagger;

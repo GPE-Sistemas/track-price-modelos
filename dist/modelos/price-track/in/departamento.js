@@ -14,4 +14,4 @@ exports.IDepartamentoValidation = joi_1.default.object({
     idZona: joi_1.default.string(),
     idRegion: joi_1.default.string(),
 });
-exports.IDepartamentoSwagger = joi_to_swagger_1.default(exports.IDepartamentoValidation).swagger;
+exports.IDepartamentoSwagger = (0, joi_to_swagger_1.default)(exports.IDepartamentoValidation).swagger;

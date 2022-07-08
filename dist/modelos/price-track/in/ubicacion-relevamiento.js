@@ -15,4 +15,4 @@ exports.IUbicacionRelevamientoValidation = joi_1.default.object({
     idDepartamento: joi_1.default.string(),
     idLocalidad: joi_1.default.string(),
 });
-exports.IUbicacionRelevamientoSwagger = joi_to_swagger_1.default(exports.IUbicacionRelevamientoValidation).swagger;
+exports.IUbicacionRelevamientoSwagger = (0, joi_to_swagger_1.default)(exports.IUbicacionRelevamientoValidation).swagger;

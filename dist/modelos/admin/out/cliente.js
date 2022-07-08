@@ -11,5 +11,6 @@ exports.IClienteDTOValidation = joi_1.default.object({
     admin: joi_1.default.boolean(),
     activo: joi_1.default.boolean(),
     nombre: joi_1.default.string(),
+    condicionComercialDefault: joi_1.default.string(),
 });
-exports.IClienteDTOSwagger = joi_to_swagger_1.default(exports.IClienteDTOValidation).swagger;
+exports.IClienteDTOSwagger = (0, joi_to_swagger_1.default)(exports.IClienteDTOValidation).swagger;

@@ -12,4 +12,4 @@ exports.IProvinciaValidation = joi_1.default.object({
     coordenadas: joi_1.default.array().items(shared_1.ICoordenadasValidation),
     idRegion: joi_1.default.string(),
 });
-exports.IProvinciaSwagger = joi_to_swagger_1.default(exports.IProvinciaValidation).swagger;
+exports.IProvinciaSwagger = (0, joi_to_swagger_1.default)(exports.IProvinciaValidation).swagger;

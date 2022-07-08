@@ -20,4 +20,4 @@ exports.IComposicionDTOValidation = joi_1.default.object({
     familiaQuimica: familia_quimica_1.IFamiliaQuimicaDTOValidation,
     principioActivo: principio_activo_1.IPrincipioActivoDTOValidation,
 });
-exports.IComposicionDTOSwagger = joi_to_swagger_1.default(exports.IComposicionDTOValidation).swagger;
+exports.IComposicionDTOSwagger = (0, joi_to_swagger_1.default)(exports.IComposicionDTOValidation).swagger;

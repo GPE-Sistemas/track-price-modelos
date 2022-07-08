@@ -11,4 +11,4 @@ exports.IEmpresaValidation = joi_1.default.object({
     propia: joi_1.default.boolean(),
     color: joi_1.default.string(),
 });
-exports.IEmpresaSwagger = joi_to_swagger_1.default(exports.IEmpresaValidation).swagger;
+exports.IEmpresaSwagger = (0, joi_to_swagger_1.default)(exports.IEmpresaValidation).swagger;

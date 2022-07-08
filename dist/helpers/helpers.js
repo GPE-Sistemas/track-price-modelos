@@ -26,7 +26,7 @@ function validateSchema(dato, schema) {
         throw {
             error: result.error,
             status: 400,
-            mensaje: (_c = (_b = (_a = result.error) === null || _a === void 0 ? void 0 : _a.details) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.message
+            mensaje: (_c = (_b = (_a = result.error) === null || _a === void 0 ? void 0 : _a.details) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.message,
         };
     }
 }
@@ -80,7 +80,9 @@ function parseQueryFilters(queryParams) {
             else {
                 parsedQuery.filter.$or = [];
                 for (const field of filtro.field) {
-                    parsedQuery.filter.$or.push({ [field]: getFilterValue(filtro.type, filtro.value) });
+                    parsedQuery.filter.$or.push({
+                        [field]: getFilterValue(filtro.type, filtro.value),
+                    });
                 }
             }
         }
@@ -106,7 +108,8 @@ function httpRequest(url, method, queryParams, headers, body) {
             if (headers) {
                 options.headers = headers;
             }
-            if (body && (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT')) {
+            if (body &&
+                (method.toUpperCase() === 'POST' || method.toUpperCase() === 'PUT')) {
                 if (typeof body === 'object') {
                     options.json = body;
                 }
@@ -114,7 +117,7 @@ function httpRequest(url, method, queryParams, headers, body) {
                     options.body = body;
                 }
             }
-            const response = yield got_1.default(url, options);
+            const response = yield (0, got_1.default)(url, options);
             let parsedBody;
             try {
                 parsedBody = JSON.parse(response.body);
@@ -136,7 +139,7 @@ function httpRequest(url, method, queryParams, headers, body) {
                 throw {
                     error: parsedBody,
                     status: response.statusCode,
-                    mensaje: parsedBody.mensaje || parsedBody.message || response.statusMessage
+                    mensaje: parsedBody.mensaje || parsedBody.message || response.statusMessage,
                 };
             }
         }
@@ -146,21 +149,21 @@ function httpRequest(url, method, queryParams, headers, body) {
                     throw {
                         status: 500,
                         mensaje: 'Tiempo de espera agotado para la solicitud',
-                        err
+                        err,
                     };
                 }
                 case 'ENOTFOUND': {
                     throw {
                         status: 500,
                         mensaje: `Direccion ${(_a = err.options) === null || _a === void 0 ? void 0 : _a.url} no entontrada`,
-                        err
+                        err,
                     };
                 }
                 case 'ECONNREFUSED': {
                     throw {
                         status: 500,
                         mensaje: `Direccion ${(_b = err.options) === null || _b === void 0 ? void 0 : _b.url} no entontrada`,
-                        err
+                        err,
                     };
                 }
                 default: {

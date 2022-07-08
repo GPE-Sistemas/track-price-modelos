@@ -5,5 +5,6 @@ export interface ICliente {
     admin?: boolean;
     activo?: boolean;
     nombre?: string;
+    condicionComercialDefault?: string;
 }
 //# sourceMappingURL=cliente.d.ts.map

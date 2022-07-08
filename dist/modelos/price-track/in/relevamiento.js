@@ -23,4 +23,4 @@ exports.IRelevamientoValidation = joi_1.default.object({
     pago: pago_relevamiento_1.IPagoRelevamientoValidation,
     producto: producto_relevamiento_1.IProductoRelevamientoValidation,
 });
-exports.IRelevamientoSwagger = joi_to_swagger_1.default(exports.IRelevamientoValidation).swagger;
+exports.IRelevamientoSwagger = (0, joi_to_swagger_1.default)(exports.IRelevamientoValidation).swagger;

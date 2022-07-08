@@ -9,4 +9,4 @@ const joi_to_swagger_1 = __importDefault(require("joi-to-swagger"));
 exports.IFamiliaQuimicaValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
 });
-exports.IFamiliaQuimicaSwagger = joi_to_swagger_1.default(exports.IFamiliaQuimicaValidation).swagger;
+exports.IFamiliaQuimicaSwagger = (0, joi_to_swagger_1.default)(exports.IFamiliaQuimicaValidation).swagger;

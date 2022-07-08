@@ -40,4 +40,4 @@ exports.IOperadorDTOValidation = joi_1.default.object({
     departamentos: joi_1.default.array().items(departamento_1.IDepartamentoDTOValidation),
     localidades: joi_1.default.array().items(localidad_1.ILocalidadDTOValidation),
 });
-exports.IOperadorDTOSwagger = joi_to_swagger_1.default(exports.IOperadorDTOValidation).swagger;
+exports.IOperadorDTOSwagger = (0, joi_to_swagger_1.default)(exports.IOperadorDTOValidation).swagger;

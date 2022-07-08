@@ -28,4 +28,4 @@ exports.IOperadorValidation = joi_1.default.object({
     idsLocalidad: joi_1.default.array().items(joi_1.default.string()),
     global: joi_1.default.boolean(),
 });
-exports.IOperadorSwagger = joi_to_swagger_1.default(exports.IOperadorValidation).swagger;
+exports.IOperadorSwagger = (0, joi_to_swagger_1.default)(exports.IOperadorValidation).swagger;

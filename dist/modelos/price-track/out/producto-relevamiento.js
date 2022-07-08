@@ -28,4 +28,4 @@ exports.IProductoRelevamientoDTOValidation = joi_1.default.object({
     subsegmentos: subsegmento_1.ISubsegmentoDTOValidation,
     subsegmentosPropios: subsegmento_propio_1.ISubsegmentoPropioDTOValidation,
 });
-exports.IProductoRelevamientoDTOSwagger = joi_to_swagger_1.default(exports.IProductoRelevamientoDTOValidation).swagger;
+exports.IProductoRelevamientoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IProductoRelevamientoDTOValidation).swagger;

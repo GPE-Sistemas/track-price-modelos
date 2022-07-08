@@ -10,4 +10,4 @@ exports.IFamiliaQuimicaDTOValidation = joi_1.default.object({
     _id: joi_1.default.string(),
     nombre: joi_1.default.string(),
 });
-exports.IFamiliaQuimicaDTOSwagger = joi_to_swagger_1.default(exports.IFamiliaQuimicaDTOValidation).swagger;
+exports.IFamiliaQuimicaDTOSwagger = (0, joi_to_swagger_1.default)(exports.IFamiliaQuimicaDTOValidation).swagger;

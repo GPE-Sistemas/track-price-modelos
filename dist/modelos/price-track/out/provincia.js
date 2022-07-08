@@ -16,4 +16,4 @@ exports.IProvinciaDTOValidation = joi_1.default.object({
     //
     region: region_1.IRegionDTOValidation
 });
-exports.IProvinciaDTOSwagger = joi_to_swagger_1.default(exports.IProvinciaDTOValidation).swagger;
+exports.IProvinciaDTOSwagger = (0, joi_to_swagger_1.default)(exports.IProvinciaDTOValidation).swagger;

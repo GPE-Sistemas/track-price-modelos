@@ -11,4 +11,4 @@ exports.IPrincipioActivoValidation = joi_1.default.object({
     idFamiliaQuimica: joi_1.default.string(),
     nombreCorto: joi_1.default.string(),
 });
-exports.IPrincipioActivoSwagger = joi_to_swagger_1.default(exports.IPrincipioActivoValidation).swagger;
+exports.IPrincipioActivoSwagger = (0, joi_to_swagger_1.default)(exports.IPrincipioActivoValidation).swagger;

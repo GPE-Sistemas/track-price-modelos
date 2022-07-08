@@ -9,4 +9,4 @@ const joi_to_swagger_1 = __importDefault(require("joi-to-swagger"));
 exports.ISegmentoValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
 });
-exports.ISegmentoSwagger = joi_to_swagger_1.default(exports.ISegmentoValidation).swagger;
+exports.ISegmentoSwagger = (0, joi_to_swagger_1.default)(exports.ISegmentoValidation).swagger;

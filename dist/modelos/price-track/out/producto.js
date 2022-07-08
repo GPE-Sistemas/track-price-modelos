@@ -40,4 +40,4 @@ exports.IProductoDTOValidation = joi_1.default.object({
     agrupacion1: joi_1.default.object(),
     agrupacion2: joi_1.default.object(),
 });
-exports.IProductoDTOSwagger = joi_to_swagger_1.default(exports.IProductoDTOValidation).swagger;
+exports.IProductoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IProductoDTOValidation).swagger;

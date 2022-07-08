@@ -10,4 +10,4 @@ exports.ISubsegmentoPropioValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     idSegmento: joi_1.default.string(),
 });
-exports.ISubsegmentoPropioSwagger = joi_to_swagger_1.default(exports.ISubsegmentoPropioValidation).swagger;
+exports.ISubsegmentoPropioSwagger = (0, joi_to_swagger_1.default)(exports.ISubsegmentoPropioValidation).swagger;

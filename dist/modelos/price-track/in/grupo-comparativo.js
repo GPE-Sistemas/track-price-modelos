@@ -10,4 +10,4 @@ exports.IGrupoComparativoValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     idProductos: joi_1.default.array().items(joi_1.default.string()),
 });
-exports.IGrupoComparativoSwagger = joi_to_swagger_1.default(exports.IGrupoComparativoValidation).swagger;
+exports.IGrupoComparativoSwagger = (0, joi_to_swagger_1.default)(exports.IGrupoComparativoValidation).swagger;

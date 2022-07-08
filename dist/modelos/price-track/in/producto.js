@@ -27,4 +27,4 @@ exports.IProductoValidation = joi_1.default.object({
     idsAgrupacion1: joi_1.default.array().items(joi_1.default.string()),
     idsAgrupacion2: joi_1.default.array().items(joi_1.default.string()),
 });
-exports.IProductoSwagger = joi_to_swagger_1.default(exports.IProductoValidation).swagger;
+exports.IProductoSwagger = (0, joi_to_swagger_1.default)(exports.IProductoValidation).swagger;

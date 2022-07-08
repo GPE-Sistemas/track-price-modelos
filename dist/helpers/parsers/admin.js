@@ -17,9 +17,11 @@ class AdminParserService {
             telefono: dato.telefono,
             rol: dato.rol,
             //
-            cliente: dato.cliente ? AdminParserService.cliente(dato.cliente) : undefined,
+            cliente: dato.cliente
+                ? AdminParserService.cliente(dato.cliente)
+                : undefined,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static usuarios(datos) {
@@ -36,8 +38,9 @@ class AdminParserService {
             activo: dato.activo,
             admin: dato.admin,
             nombre: dato.nombre,
+            condicionComercialDefault: dato.condicionComercialDefault,
         };
-        Object.keys(dto).forEach(key => !dto[key] ? delete dto[key] : {});
+        Object.keys(dto).forEach((key) => !dto[key] ? delete dto[key] : {});
         return dto;
     }
     static clientes(datos) {

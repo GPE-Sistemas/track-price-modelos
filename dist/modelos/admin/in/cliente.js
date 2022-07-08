@@ -10,5 +10,6 @@ exports.IClienteValidation = joi_1.default.object({
     admin: joi_1.default.boolean(),
     activo: joi_1.default.boolean(),
     nombre: joi_1.default.string(),
+    condicionComercialDefault: joi_1.default.string(),
 });
-exports.IClienteSwagger = joi_to_swagger_1.default(exports.IClienteValidation).swagger;
+exports.IClienteSwagger = (0, joi_to_swagger_1.default)(exports.IClienteValidation).swagger;

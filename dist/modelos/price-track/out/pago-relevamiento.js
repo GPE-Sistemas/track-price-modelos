@@ -24,4 +24,4 @@ exports.IPagoRelevamientoDTOValidation = joi_1.default.object({
         porcentajePago: joi_1.default.number(),
     })),
 });
-exports.IPagoRelevamientoDTOSwagger = joi_to_swagger_1.default(exports.IPagoRelevamientoDTOValidation).swagger;
+exports.IPagoRelevamientoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IPagoRelevamientoDTOValidation).swagger;

@@ -13,4 +13,4 @@ exports.IGrupoComparativoDTOValidation = joi_1.default.object({
     idProductos: joi_1.default.array().items(joi_1.default.string()),
     productos: joi_1.default.array().items(joi_1.default.string()),
 });
-exports.IGrupoComparativoDTOSwagger = joi_to_swagger_1.default(exports.IGrupoComparativoDTOValidation).swagger;
+exports.IGrupoComparativoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IGrupoComparativoDTOValidation).swagger;

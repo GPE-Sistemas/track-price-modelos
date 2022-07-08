@@ -15,4 +15,4 @@ exports.IPrincipioActivoDTOValidation = joi_1.default.object({
     //
     familiaQuimica: familia_quimica_1.IFamiliaQuimicaDTOValidation,
 });
-exports.IPrincipioActivoDTOSwagger = joi_to_swagger_1.default(exports.IPrincipioActivoDTOValidation).swagger;
+exports.IPrincipioActivoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IPrincipioActivoDTOValidation).swagger;

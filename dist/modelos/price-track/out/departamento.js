@@ -22,4 +22,4 @@ exports.IDepartamentoDTOValidation = joi_1.default.object({
     zona: zona_1.IZonaDTOValidation,
     region: region_1.IRegionDTOValidation
 });
-exports.IDepartamentoDTOSwagger = joi_to_swagger_1.default(exports.IDepartamentoDTOValidation).swagger;
+exports.IDepartamentoDTOSwagger = (0, joi_to_swagger_1.default)(exports.IDepartamentoDTOValidation).swagger;

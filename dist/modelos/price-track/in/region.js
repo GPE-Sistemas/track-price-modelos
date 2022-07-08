@@ -11,4 +11,4 @@ exports.IRegionValidation = joi_1.default.object({
     nombre: joi_1.default.string(),
     coordenadas: joi_1.default.array().items(shared_1.ICoordenadasValidation),
 });
-exports.IRegionSwagger = joi_to_swagger_1.default(exports.IRegionValidation).swagger;
+exports.IRegionSwagger = (0, joi_to_swagger_1.default)(exports.IRegionValidation).swagger;

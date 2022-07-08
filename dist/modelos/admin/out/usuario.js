@@ -19,8 +19,8 @@ exports.IUsuarioDTOValidation = joi_1.default.object({
     email: joi_1.default.string(),
     pais: joi_1.default.string(),
     telefono: joi_1.default.string(),
-    rol: joi_1.default.string().allow('admin', 'consultor', 'relevador'),
+    rol: joi_1.default.string().allow('admin', 'consultor', 'relevador', 'externo'),
     //
     cliente: cliente_1.IClienteDTOValidation,
 });
-exports.IUsuarioDTOSwagger = joi_to_swagger_1.default(exports.IUsuarioDTOValidation).swagger;
+exports.IUsuarioDTOSwagger = (0, joi_to_swagger_1.default)(exports.IUsuarioDTOValidation).swagger;

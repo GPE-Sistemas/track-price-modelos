@@ -6,5 +6,6 @@ export interface IClienteDTO {
     admin: boolean;
     activo: boolean;
     nombre: string;
+    condicionComercialDefault: string;
 }
 //# sourceMappingURL=cliente.d.ts.map
